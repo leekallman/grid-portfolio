@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:url" content="https://leekallman.github.io/portfolio/" />
+    <meta property="og:title" content="Lisa Lee - Frontend Developer" />
+    <meta property="og:description" content="personal portfolio" />
+    <meta
+      property="og:image"
+      content="https://leekallman.github.io/portfolio/images/lisalee.jpg"
+    />
+    <!-- <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:alt" content="photo of Lisa Lee"> -->
+    <meta property="og:site_name" content="leekallman" />
+    <title>Lisa Lee - Portfolio</title>
+
+    <link rel="preload" href="style.css" as="style" />
+    <!-- <link rel="preload" href="js/script.js" as="script" />
+    <link rel="preload" href="js/drawer.js" as="script" /> -->
+    <!-- <link
+      rel="preload"
+      href="fonts/inter-var.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    /> -->
+
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"
+      integrity="sha512-WIklPM6qPCIp6d3fSSr90j+1unQHUOoWDS4sdTiR8gxUTnyZ8S2Mr8e10sKKJ/bhJgpAa/qG068RDkg6fIlNFA=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/fadein.js"></script>
+  </head>
+  <body>
+    <svg id="fader"></svg>
+    <script>
+      fadeInPage();
+    </script>
+    <main>
+      <section class="panner">
+        <div class="projectGrid">
+          <div class="one-one"></div>
+
+          <div class="one-two"></div>
+
+          <div class="one-three" id="clock">
+            <div class="clock">
+              <img src="images/clock.png" alt="clock background" />
+              <div class="dial seconds"></div>
+              <div class="dial minutes"></div>
+              <div class="dial hours"></div>
+            </div>
+          </div>
+
+          <div class="one-four"></div>
+
+          <div class="one-five"></div>
+
+          <div class="two-one" id="who">
+            <h2>Who I am</h2>
+            <div class="phrase">
+              I’m a digital creative and Frontend Developer..
+            </div>
+            <input
+              class="input"
+              type="range"
+              max="12"
+              value="0"
+              aria-label="drag to read"
+            />
+          </div>
+
+          <div class="three-three" id="letters"></div>
+
+          <div class="four-two" id="a"></div>
+
+          <div class="four-three">
+            <div class="star">
+              <img src="images/Star.png" alt="star symbol" />
+              <a href="" class="cv">CV</a>
+            </div>
+          </div>
+
+          <div class="four-five" id=""></div>
+
+          <div class="five-one" id=""></div>
+
+          <div class="six-four" id=""></div>
+
+          <div class="six-five" id="">
+            <div class="ellipses">
+              <div class="ellipse1">
+                <img src="images/Ellipse1.png" alt="ellipse email" />
+                <a href="mailto:lisaleekallman@gmail.com" class="email"
+                  >Email</a
+                >
+              </div>
+              <div class="ellipse2">
+                <img src="images/Ellipse2.png" alt="ellipse linkedin" />
+                <a
+                  href="https://linkedin.com/in/lisaleekallman"
+                  class="linkedin"
+                  >Linkedin</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="six-six" id="book">
+            <div class="book">
+              <div class="face face-cover"></div>
+              <div class="face face-spine"></div>
+              <div class="face face-back"></div>
+              <div class="face face-top"></div>
+              <div class="face face-side"></div>
+              <div class="face face-bottom"></div>
+            </div>
+          </div>
+
+          <div class="seven-one" id=""></div>
+
+          <div class="seven-two" id="">
+            <p class="playground">My Playground</p>
+          </div>
+
+          <div class="eight-two" id=""></div>
+
+          <div class="eight-three" id=""></div>
+
+          <div class="nine-one" id=""></div>
+
+          <div class="nine-three" id="">
+            <canvas class="imgCanvas"></canvas>
+          </div>
+          <div class="nine-four" id=""></div>
+          <div class="ten-two" id=""></div>
+          <div class="eleven-one" id=""></div>
+          <div class="twelve-four" id=""></div>
+        </div>
+      </section>
+      <script src="js/script.js"></script>
+      <script src="js/canvas.js"></script>
+      <script src="js/drawer.js"></script>
+    </main>
+  </body>
+</html>
