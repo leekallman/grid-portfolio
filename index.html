@@ -9,31 +9,27 @@
     <meta property="og:description" content="personal portfolio" />
     <meta
       property="og:image"
-      content="https://leekallman.github.io/portfolio/images/lisalee.jpg"
+      content="https://leekallman.github.io/portfolio/images/lisalee.png"
     />
-    <!-- <meta property="og:image:type" content="image/jpg">
-    <meta property="og:image:alt" content="photo of Lisa Lee"> -->
-    <meta property="og:site_name" content="leekallman" />
+    <meta property="og:image:type" content="image/jpg" />
+    <meta property="og:image:alt" content="photo of Lisa Lee" />
+    <meta property="og:site_name" content="lisalee" />
     <title>Lisa Lee - Portfolio</title>
 
     <link rel="preload" href="style.css" as="style" />
-    <!-- <link rel="preload" href="js/script.js" as="script" />
-    <link rel="preload" href="js/drawer.js" as="script" /> -->
-    <!-- <link
-      rel="preload"
-      href="fonts/inter-var.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    /> -->
-
     <link rel="stylesheet" href="style.css" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"
       integrity="sha512-WIklPM6qPCIp6d3fSSr90j+1unQHUOoWDS4sdTiR8gxUTnyZ8S2Mr8e10sKKJ/bhJgpAa/qG068RDkg6fIlNFA=="
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="js/fadein.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"
+    ></script>
   </head>
   <body>
     <svg id="fader"></svg>
@@ -41,110 +37,708 @@
       fadeInPage();
     </script>
     <main>
-      <section class="panner">
-        <div class="projectGrid">
-          <div class="one-one"></div>
+      <div class="projectGrid">
+        <div class="one-one">
+          <div class="overlay-one-one overlay">
+            <h2 class="title">Femart</h2>
+            <p class="intro">
+              The website for Femart art collective aim to showcase the work of
+              female and non-binary artists
+            </p>
+            <p class="tags">#studentproject #femtech #wordpress</p>
+          </div>
+        </div>
+        <div class="one-two">
+          <canvas class="imgCanvas"></canvas>
+        </div>
 
-          <div class="one-two"></div>
+        <div class="one-three" id="clock">
+          <div class="clock">
+            <img src="images/clock.png" alt="clock background" />
+            <div class="dial seconds"></div>
+            <div class="dial minutes"></div>
+            <div class="dial hours"></div>
+          </div>
+        </div>
 
-          <div class="one-three" id="clock">
-            <div class="clock">
-              <img src="images/clock.png" alt="clock background" />
-              <div class="dial seconds"></div>
-              <div class="dial minutes"></div>
-              <div class="dial hours"></div>
+        <div class="one-four" id="letters"></div>
+
+        <div class="one-five"></div>
+
+        <div class="two-one" id="">
+          <div class="overlay-two-one overlay">
+            <h2 class="title">Tort Magazine</h2>
+            <p class="intro">
+              In the winter of 2019, I was part of starting a new paper print
+              magazine. Tort magazine tells stories about individuals who fight
+              for societal change and deconstruction of norms
+            </p>
+            <p class="tags">#diversity #engagement #paperprint #web</p>
+          </div>
+        </div>
+
+        <div class="three-three" id="">
+          <canvas class="me"></canvas>
+        </div>
+
+        <div class="four-two" id="a"></div>
+
+        <div class="four-three">
+          <div class="star">
+            <img src="images/Star.png" alt="star symbol" />
+            <a href="" class="cv">CV</a>
+          </div>
+        </div>
+
+        <div class="four-five" id="">
+          <div class="overlay-four-five overlay">
+            <h2 class="title">Motherly</h2>
+            <p class="intro">Mobile app design made in a 23h design sprint</p>
+            <p class="tags">#studentproject #femtech</p>
+          </div>
+        </div>
+
+        <div class="five-one" id="">
+          <div class="overlay-five-one overlay">
+            <h2 class="title">Play:</h2>
+            <p class="intro">
+              A quick n dirty attempt to getting familiar with the spotify web
+              api.
+            </p>
+            <p class="tags">#studentproject #API #creativecoding</p>
+          </div>
+        </div>
+
+        <div class="six-four" id=""></div>
+
+        <div class="six-five" id="">
+          <div class="ellipses">
+            <div class="ellipse1">
+              <img src="images/Ellipse1.png" alt="ellipse email" />
+              <a href="mailto:lisaleekallman@gmail.com" class="email">Email</a>
+            </div>
+            <div class="ellipse2">
+              <img src="images/Ellipse2.png" alt="ellipse linkedin" />
+              <a href="https://linkedin.com/in/lisaleekallman" class="linkedin"
+                >Linkedin</a
+              >
             </div>
           </div>
+        </div>
 
-          <div class="one-four"></div>
-
-          <div class="one-five"></div>
-
-          <div class="two-one" id="who">
-            <h2>Who I am</h2>
-            <div class="phrase">
-              I’m a digital creative and Frontend Developer..
-            </div>
-            <input
-              class="input"
-              type="range"
-              max="12"
-              value="0"
-              aria-label="drag to read"
-            />
-          </div>
-
-          <div class="three-three" id="letters"></div>
-
-          <div class="four-two" id="a"></div>
-
-          <div class="four-three">
-            <div class="star">
-              <img src="images/Star.png" alt="star symbol" />
-              <a href="" class="cv">CV</a>
-            </div>
-          </div>
-
-          <div class="four-five" id=""></div>
-
-          <div class="five-one" id=""></div>
-
-          <div class="six-four" id=""></div>
-
-          <div class="six-five" id="">
-            <div class="ellipses">
-              <div class="ellipse1">
-                <img src="images/Ellipse1.png" alt="ellipse email" />
-                <a href="mailto:lisaleekallman@gmail.com" class="email"
-                  >Email</a
-                >
-              </div>
-              <div class="ellipse2">
-                <img src="images/Ellipse2.png" alt="ellipse linkedin" />
-                <a
-                  href="https://linkedin.com/in/lisaleekallman"
-                  class="linkedin"
-                  >Linkedin</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="six-six" id="book">
-            <div class="book">
+        <div class="six-six" id="book">
+          <!-- <div class="book">
               <div class="face face-cover"></div>
               <div class="face face-spine"></div>
               <div class="face face-back"></div>
               <div class="face face-top"></div>
               <div class="face face-side"></div>
               <div class="face face-bottom"></div>
+            </div> -->
+        </div>
+
+        <div class="seven-one" id="">
+          <div class="overlay-seven-one overlay">
+            <h2 class="title">Vimmerby stugby</h2>
+            <p class="intro">
+              My first real client project, to re-design an existing client
+              site. One of my first experiences with php and wordpress
+            </p>
+            <p class="tags">#CMS #wordpress</p>
+          </div>
+        </div>
+
+        <div class="seven-two" id="">
+          <p class="playground">My Playground</p>
+        </div>
+
+        <div class="eight-two" id="">
+          <div class="overlay-eight-two overlay">
+            <h2 class="title">Southside 19 markets</h2>
+            <p class="intro">
+              Strong communities is a rare find in the Swedish culture. Together
+              with likeminded peeps I'm organising community markets along
+              Stockholm's metro line 19
+            </p>
+            <p class="tags">#community #reuse #grassroot</p>
+          </div>
+        </div>
+
+        <div class="eight-three" id=""></div>
+
+        <div class="nine-one" id=""></div>
+
+        <div class="nine-three" id="who">
+          <h2>Who I am</h2>
+          <div class="phrase">
+            I’m a digital creative and Frontend Developer..
+          </div>
+          <input
+            class="input"
+            type="range"
+            max="12"
+            value="0"
+            aria-label="drag to read"
+          />
+        </div>
+        <div class="nine-four" id="">
+          <div class="overlay-nine-four overlay">
+            <h2 class="title">Ricola World</h2>
+            <p class="intro">
+              Ricola world is my team's proposal on how best communicate the
+              Ricola sustainability strategy to their employees
+            </p>
+            <p class="tags">
+              #studentproject #sustainability #communication #ux
+            </p>
+          </div>
+        </div>
+        <div class="ten-two" id="">
+          <div class="ten-two-inner"></div>
+        </div>
+        <div class="eleven-one" id="">
+          <div class="overlay-eleven-one overlay">
+            <h2 class="title">Nomad Sun</h2>
+            <p class="intro">
+              A travel blog made with php and Wordpress @superHi
+            </p>
+            <p class="tags">#studentproject</p>
+          </div>
+        </div>
+        <div class="twelve-four" id="">
+          <form
+            id="my-form"
+            action="https://formspree.io/f/mzbywpl"
+            method="POST"
+          >
+            <label for="message">Project ideas to add to my portfolio?</label>
+            <textarea
+              type="text"
+              name="message"
+              id="message"
+              rows="1"
+              placeholder="fully-fledged mobile app"
+              required
+            ></textarea>
+
+            <button type="submit">Send</button>
+          </form>
+          <div id="status"></div>
+        </div>
+      </div>
+
+      <!-- MODALS -->
+      <div class="modal modal-eight-two">
+        <div class="modal-inner">
+          <h1 class="modal-heading">Southside 19 markets</h1>
+          <div class="text-content">
+            <div class="column1">
+              <div class="features">
+                <span>Graphic design</span>
+                <span>Frontend</span>
+                <span>Content creation</span>
+              </div>
+              <p class="description">
+                The creation of the identity and social media presence of the
+                community market association Southside 19. My first, very funky,
+                client website being deployed.
+              </p>
+            </div>
+            <div class="column2">
+              <span class="date">date</span>
+              <p>march 2020</p>
+              <span class="deliverables">deliverabels</span>
+              <p>
+                identity, prototyping,
+                <a href="https://southside19.com">web</a>, social media content
+              </p>
+            </div>
+            <div class="column3">
+              <span class="client">client</span>
+              <p>Southside 19</p>
+              <span class="tools">tools</span>
+              <p>Photoshop, Illustrator, Figma, jQuery</p>
             </div>
           </div>
-
-          <div class="seven-one" id=""></div>
-
-          <div class="seven-two" id="">
-            <p class="playground">My Playground</p>
+          <div class="img-content">
+            <img
+              src="images/southside-front.png"
+              alt="southside home page"
+              class="front"
+            />
+            <p class="note">
+              Home page and sub pages, one for each market. Graphics and logo in
+              bright funky colors
+            </p>
+            <img
+              src="images/southside-pages.png"
+              alt="southside markets pages"
+              class="southside-pages pages"
+            />
+            <div></div>
+            <img
+              src="images/southside-mobile2.png"
+              alt=""
+              class="southside-mobile"
+            />
+            <div class="southside-news-div">
+              <img
+                src="images/southside-news.png"
+                alt=""
+                class="southside-news"
+              />
+              <p class="note">
+                Our community spirit get attention in local newspapers
+              </p>
+            </div>
           </div>
-
-          <div class="eight-two" id=""></div>
-
-          <div class="eight-three" id=""></div>
-
-          <div class="nine-one" id=""></div>
-
-          <div class="nine-three" id="">
-            <canvas class="imgCanvas"></canvas>
-          </div>
-          <div class="nine-four" id=""></div>
-          <div class="ten-two" id=""></div>
-          <div class="eleven-one" id=""></div>
-          <div class="twelve-four" id=""></div>
         </div>
-      </section>
+      </div>
+      <div class="modal modal-one-one">
+        <div class="modal-inner">
+          <h1 class="modal-heading">Femart</h1>
+          <div class="text-content">
+            <div class="column1">
+              <div class="features">
+                <span>Frontend</span>
+                <span>CMS</span>
+                <span>Wordpress</span>
+              </div>
+              <p class="description">
+                My first client brief @Hyperisland's Frontend developer program,
+                to re-design Femart's website for a more professional, up to
+                date feel. Focus was usability and easy navigation and a
+                requirement from the client was that they would be able to
+                maintain the site themselves.
+              </p>
+            </div>
+            <div class="column2">
+              <span class="date">date</span>
+              <p>dec 2020</p>
+              <span class="deliverables">deliverabels</span>
+              <p>prototyping, <a href="https://femart.se">web</a>, logo</p>
+            </div>
+            <div class="column3">
+              <span class="client">client</span>
+              <p>Femart</p>
+              <span class="tools">tools</span>
+              <p>Figma, Wordpress, Elementor</p>
+            </div>
+          </div>
+          <div class="img-content">
+            <img
+              src="images/femart-front.png"
+              alt="femart home page"
+              class="front"
+            />
+            <p class="note">
+              To increase design consistency, we set up a design system with
+              smart components
+            </p>
+            <img
+              src="images/femart-chart.png"
+              alt="femart design system"
+              class="chart femart-chart"
+            />
+            <div>
+              <p class="note">
+                To achieve full responsivness and the exact design we wanted, we
+                worked with custom css within an empty wordpress theme
+              </p>
+              <img
+                src="images/femart-logo.png"
+                width="50px"
+                height="50"
+                class="logo"
+                alt="femart logo"
+              />
+              <img
+                src="images/femart-logo2.png"
+                width="50px"
+                height="50"
+                class="logo"
+                alt="femart prototype"
+              />
+            </div>
+            <!-- <img src="images/arrow.png" class="arrow" alt="" /> -->
+            <img
+              src="images/femart-mobile.png"
+              width="100px"
+              alt="femart mobile"
+              class="mobile"
+            />
+            <img
+              src="images/femart-ipad.png"
+              width="150px"
+              alt="femart ipad"
+              class="ipad"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal modal-two-one">
+        <div class="modal-inner">
+          <h1 class="modal-heading">Tort Magazine</h1>
+          <div class="text-content">
+            <div class="column1">
+              <div class="features">
+                <span>Project Management</span>
+                <span>Frontend</span>
+                <span>Headless CMS</span>
+              </div>
+              <p class="description">
+                As assistant chief-editor, I coordinated and led the design
+                process. My role meant a combination of project management and
+                creative work. I designed and bulit the website with a strong
+                influence from the printed magazine. It's a single page
+                application that uses contentful for easy editing of site
+                content. The web shop is made with bigcartel.
+              </p>
+            </div>
+            <div class="column2">
+              <span class="date">date</span>
+              <p>nov 2019 - feb 2021</p>
+              <span class="deliverables">deliverabels</span>
+              <p>
+                prototyping,
+                <a href="https://tortmagazine.com/">web</a>, webshop, magazine
+                in print
+              </p>
+            </div>
+            <div class="column3">
+              <span class="client">client</span>
+              <p>Tort Magazine</p>
+              <span class="tools">tools</span>
+              <p>Figma, react.js, gatsby, contentful, three.js, netlify</p>
+            </div>
+          </div>
+          <div class="img-content">
+            <img
+              src="images/tort-front.png"
+              alt="tortmagazine home page"
+              class="front"
+            />
+            <img
+              src="images/tort-pages.png"
+              alt="tortmagazine pages"
+              class="tort-pages pages"
+            />
+            <p class="note">
+              articles displayed as spreads. with contentful text content can
+              easily be edited by the editorial team.
+            </p>
+            <!-- <img src="images/arrow.png" class="arrow" alt="" /> -->
+            <img
+              src="images/tort-mobile.png"
+              alt="tortmagazine mobile"
+              class="tort-mobile mobile"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal modal-nine-four">
+        <div class="modal-inner">
+          <h1 class="modal-heading">Ricola World</h1>
+          <div class="text-content">
+            <div class="column1">
+              <div class="features">
+                <span>UX design</span>
+                <span>Frontend</span>
+                <span>Headless CMS</span>
+                <span>Interaction</span>
+              </div>
+              <p class="description">
+                This isometic world is a playful way to let the users interact
+                and explore site content. It's a single page application
+                purposely designed to let the user decide the level of
+                information they want to read.
+              </p>
+            </div>
+            <div class="column2">
+              <span class="date">date</span>
+              <p>feb 2021</p>
+              <span class="deliverables">deliverabels</span>
+              <p>
+                prototyping, assets
+                <a href="https://admiring-wilson-c6c01d.netlify.app">web</a>,
+                <a href="https://github.com/leekallman/c_c-Ricola">github</a>
+              </p>
+            </div>
+            <div class="column3">
+              <span class="client">client</span>
+              <p>Ricola</p>
+              <span class="tools">tools</span>
+              <p>Figma, react.js, gatsby, contentful, netlify</p>
+            </div>
+          </div>
+          <div class="img-content">
+            <img
+              src="images/ricola-front.png"
+              alt="ricola front page"
+              class="front"
+            />
+            <p class="note">
+              Media and text information neatly presented in a card grid.
+              Visitors simply click further to read more in depth about the the
+              differnt sustainability actions
+            </p>
+            <img src="images/arrow.png" class="arrow" alt="" />
+            <img
+              src="images/ricola-pages.png"
+              alt="ricola world pages"
+              class="ricola-pages pages"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="modal modal-four-five">
+        <div class="modal-inner">
+          <h1 class="modal-heading">Motherly</h1>
+          <div class="text-content">
+            <div class="column1">
+              <div class="features">
+                <span>Mobile App Design</span>
+              </div>
+              <p class="description">
+                The brief was to create a design for a given business idea.
+                Motherly is an app that aim to support new moms with a very
+                common and tabu struggle for new mothers, breastfeeding.
+              </p>
+            </div>
+            <div class="column2">
+              <span class="date">date</span>
+              <p>feb 2021</p>
+              <span class="deliverables">deliverabels</span>
+              <p>
+                <a
+                  href="https://www.figma.com/proto/uP6ID2jfokEmbrUFxJnCbU/Motherly?page-id=0%3A1&node-id=10%3A27&starting-point-node-id=10%3A27"
+                  >prototype</a
+                >
+              </p>
+            </div>
+            <div class="column3">
+              <span class="client">client</span>
+              <p>Student project at Hyper Island Frontend developer program</p>
+              <span class="tools">tools</span>
+              <p>Figma</p>
+            </div>
+          </div>
+          <div class="img-content">
+            <img
+              src="images/motherly-front.png"
+              alt="motherly front"
+              class="motherly-front"
+            />
+            <p class="note">
+              articles displayed as spreads. with contentful text content can
+              easily be edited by the editorial team.
+            </p>
+            <img
+              src="images/motherly-chart.png"
+              alt="motherly charts"
+              class="motherly-chart chart"
+            />
+            <p class="note">
+              When designing a mobile app, How we consume and what data we like
+              to consume on mobile devices differs from web based apps.
+            </p>
+            <img src="images/arrow.png" class="arrow" alt="" />
+            <img
+              src="images/motherly-mobile.png"
+              alt="motherly mobile design"
+              class="motherly-mobile mobile"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal modal-seven-one">
+        <div class="modal-inner">
+          <h1 class="modal-heading">Vimmerby stugby</h1>
+          <div class="text-content">
+            <div class="column1">
+              <div class="features">
+                <span>Graphics</span>
+                <span>Wordpress</span>
+                <span>Wordpress theme</span>
+              </div>
+              <p class="description">
+                23h brief to create an app, web or mobile, for one of our
+                classmates business idea. To me, this idea had to be realised as
+                an mobile app. It's aim is to support expeting women or new
+                mothers with one very tabu problem many women suffer from when
+                having a baby.
+              </p>
+            </div>
+            <div class="column2">
+              <span class="date">date</span>
+              <p>feb 2020</p>
+              <span class="deliverables">deliverabels</span>
+              <p>
+                wireframe, prototype,
+                <a href="https://vimmerbystugby.se">web</a>
+              </p>
+            </div>
+            <div class="column3">
+              <span class="client">client</span>
+              <p>Vimmerby stugby</p>
+              <span class="tools">tools</span>
+              <p>Figma, Illustrator, Wordpress, php</p>
+            </div>
+          </div>
+          <div class="img-content">
+            <img
+              src="images/vimmerby-front.png"
+              alt="vimmerby front"
+              class="vimmerby-front front"
+            />
+            <p class="note">
+              articles displayed as spreads. with contentful text content can
+              easily be edited by the editorial team.
+            </p>
+            <img
+              src="images/vimmerby-chart.png"
+              alt="vimmerby charts"
+              class="vimmerby-chart chart"
+            />
+            <div>
+              <p class="note">
+                articles displayed as spreads. with contentful text content can
+                easily be edited by the editorial team.
+              </p>
+              <img
+                src="images/vimmerby-logo.png"
+                width="150px"
+                class="logo"
+                alt="vimmerby stugby logo"
+              />
+            </div>
+            <img src="images/arrow.png" class="arrow" alt="" />
+            <img
+              src="images/vimmerby-mobile.png"
+              alt="vimmerby mobile design"
+              class="vimmerby-mobile mobile"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal modal-eleven-one">
+        <div class="modal-inner">
+          <h1 class="modal-heading">Nomad Sun</h1>
+          <div class="text-content">
+            <div class="column1">
+              <div class="features">
+                <span>Wireframing</span>
+                <span>Prototyping</span>
+                <span>CMS</span>
+              </div>
+              <p class="description">
+                Student project in SuperHi's Wordpress course.
+              </p>
+            </div>
+            <div class="column2">
+              <span class="date">date</span>
+              <p>aug 2020</p>
+              <span class="deliverables">deliverabels</span>
+              <p>prototype, web</p>
+            </div>
+            <div class="column3">
+              <span class="client">client</span>
+              <p>student project at SuperHi</p>
+              <span class="tools">tools</span>
+              <p>Figma, MAMP, WordPress</p>
+            </div>
+          </div>
+          <div class="img-content">
+            <img
+              src="images/nomadsun-front.png"
+              alt="nomadsun front"
+              class="nomadsun-front front"
+            />
+            <p class="note">
+              The focus of this project was to get an understanding of how
+              components can be used to create a clean and user friendly design
+              and code base.
+            </p>
+            <!-- <div class="brief-wrapper"> -->
+            <img
+              src="images/nomadsun-chart.png"
+              alt="nomadsun brief"
+              class="nomadsun-brief brief"
+            />
+            <!-- </div> -->
+            <p class="note">
+              articles displayed as spreads. with contentful text content can
+              easily be edited by the editorial team.
+            </p>
+            <!-- <div class="brief-wrapper"> -->
+            <img
+              src="images/nomadsun-prototype.png"
+              alt="nomadsun prototype design"
+              class="nomadsun-prototype prototype"
+            />
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="modal modal-five-one">
+        <div class="modal-inner">
+          <h1 class="modal-heading">Play:</h1>
+          <div class="text-content">
+            <div class="column1">
+              <div class="features">
+                <span>Prototyping</span>
+                <span>API</span>
+                <span>Creative coding</span>
+              </div>
+              <p class="description">
+                Student brief, to build an app using two different web API:s.
+                This basic music app uses spotify web api and spotify web player
+                plugin to allow the user to browse and listen to music using
+                one's spotify login.
+              </p>
+            </div>
+            <div class="column2">
+              <span class="date">date</span>
+              <p>march 2021</p>
+              <span class="deliverables">deliverabels</span>
+              <p>prototype, web</p>
+            </div>
+            <div class="column3">
+              <span class="client">client</span>
+              <p>student project at Hyper Island FrontEnd Developer Program</p>
+              <span class="tools">tools</span>
+              <p>
+                Figma, nodemon, express, spotify-web-api-node,
+                react-spotify-web-playback, react-bootstrap, axios, three.js
+              </p>
+            </div>
+          </div>
+          <div class="img-content">
+            <img
+              src="images/play-front.png"
+              alt="play front"
+              class="play-front front"
+            />
+            <p class="note">
+              The focus of this project was to get an understanding of how
+              components can be used to create a clean and usability friendly
+              design and code base.
+            </p>
+            <img
+              src="images/play-pages.png"
+              alt="play search view"
+              class="play-pages pages"
+            />
+          </div>
+        </div>
+      </div>
+
       <script src="js/script.js"></script>
       <script src="js/canvas.js"></script>
       <script src="js/drawer.js"></script>
+      <script src="js/matter-wrap.js"></script>
+      <script src="js/script2.js"></script>
     </main>
   </body>
 </html>

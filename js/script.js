@@ -1,57 +1,40 @@
-// Panning
-let panTag = document.querySelector('.projectGrid');
-let currentX = 0;
-let currentY = 0;
-let aimX = 0;
-let aimY = 0;
+// // Panning
+// let panTag = document.querySelector('.projectGrid');
+// let currentX = 0;
+// let currentY = 0;
+// let aimX = 0;
+// let aimY = 0;
 
-document.addEventListener("mousemove", function (event) {
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
+// document.addEventListener("mousemove", function (event) {
+//     const windowWidth = window.innerWidth;
+//     const windowHeight = window.innerHeight;
 
-    const worldWidth = panTag.clientWidth;
-    const worldHeight = panTag.clientHeight;
-    const mouseX = event.pageX;
-    const mouseY = event.pageY;
-    const panWidth = worldWidth - windowWidth;
-    const panHeight = worldHeight - windowHeight;
-    const percentageX = mouseX / windowWidth;
-    const percentageY = mouseY / windowHeight;
+//     const worldWidth = panTag.clientWidth;
+//     const worldHeight = panTag.clientHeight;
+//     const mouseX = event.pageX;
+//     const mouseY = event.pageY;
+//     const panWidth = worldWidth - windowWidth;
+//     const panHeight = worldHeight - windowHeight;
+//     const percentageX = mouseX / windowWidth;
+//     const percentageY = mouseY / windowHeight;
 
-    aimX = -1 * panWidth * percentageX;
-    aimY = -1 * panHeight * percentageY;
-})
-
-
-const animate = () => {
-    currentX += (aimX - currentX) * 0.05;
-    currentY += (aimY - currentY) * 0.05;
-
-    panTag.style.left = currentX + "px";
-    panTag.style.top = currentY + "px";
-    requestAnimationFrame(animate)
-}
-animate();
+//     aimX = -1 * panWidth * percentageX;
+//     aimY = -1 * panHeight * percentageY;
+// })
 
 
-// book
-const sixSix = document.querySelector('.six-six');
-sixSix.addEventListener('mousemove', function (event) {
-    const x = event.pageX;
-    const y = event.pageY;
-    const midX = x - window.innerWidth / 4;
-    const midY = y - window.innerHeight / 4;
+// const animate = () => {
+//     currentX += (aimX - currentX) * 0.1;
+//     currentY += (aimY - currentY) * 0.1;
 
-    const book = document.querySelector('.book')
-    book.style.left = x + 'px';
-    book.style.bottom = y + 'px';
-
-    book.style.transform = 'rotateX(' + midY + 'deg)rotateY(' + midX + 'deg)';
-});
-
+//     panTag.style.left = currentX + "px";
+//     panTag.style.top = currentY + "px";
+//     requestAnimationFrame(animate)
+// }
+// animate();
 
 // letters
-const letterBox = document.querySelector('.three-three');
+const letterBox = document.querySelector('.one-four');
 const letters = ['D', 'I', 'V', 'E', 'R', 'S', 'I', 'T', 'Y', 'D', 'I', 'V', 'E', 'R', 'S', 'I', 'T', 'Y', 'D', 'I', 'V',
     'E', 'R', 'S', 'I', 'T', 'Y', 'D', 'I', 'V', 'E', 'R', 'S', 'I', 'T', 'Y', 'D', 'I', 'V', 'E', 'R', 'S', 'I', 'T', 'Y',
     'D', 'I', 'V'];
@@ -62,7 +45,7 @@ for (let i = 0; i < letters.length; i++) {
     letter.classList.add("letter");
     letterBox.appendChild(letter);
 }
-document.addEventListener("mousemove", function (event) {
+letterBox.addEventListener("mousemove", function (event) {
     const x = event.pageX;
     const y = event.pageY;
 
@@ -127,40 +110,286 @@ let phrases = [
 document.querySelector(".input").addEventListener("input", function () {
     let value = (this.value);
     let phrase = phrases[value];
-    document.querySelector(".phrase").html(phrase);
+    document.querySelector(".phrase").innerHTML = phrase;
 });
 
 // ellipses
 const ellipse = document.querySelector('.ellipse2');
 ellipse.addEventListener("mousemove", function () {
     ellipse.style.animation = "drop 0.2s forwards";
-    // ellipse.style.transition = 'all 0.1s ease-out'
+})
+let overlayEightTwo = document.querySelector('.overlay-eight-two');
+let overlayOneOne = document.querySelector('.overlay-one-one');
+let overlayTwoOne = document.querySelector('.overlay-two-one');
+let overlaySevenOne = document.querySelector('.overlay-seven-one');
+let overlayFourFive = document.querySelector('.overlay-four-five');
+let overlayFiveOne = document.querySelector('.overlay-five-one');
+let overlayNineFour = document.querySelector('.overlay-nine-four');
+let overlayElevenOne = document.querySelector('.overlay-eleven-one');
+
+let oneOne = document.querySelector('.one-one');
+let eightTwo = document.querySelector('.eight-two');
+let twoOne = document.querySelector('.two-one');
+let sevenOne = document.querySelector('.seven-one');
+let fourFive = document.querySelector('.four-five');
+let fiveOne = document.querySelector('.five-one');
+let nineFour = document.querySelector('.nine-four');
+let elevenOne = document.querySelector('.eleven-one');
+
+let modalOneOne = document.querySelector('.modal-one-one');
+let modalEightTwo = document.querySelector('.modal-eight-two');
+let modalTwoOne = document.querySelector('.modal-two-one');
+let modalNineFour = document.querySelector('.modal-nine-four');
+let modalFourFive = document.querySelector('.modal-four-five');
+let modalFiveOne = document.querySelector('.modal-five-one');
+let modalSevenOne = document.querySelector('.modal-seven-one');
+let modalElevenOne = document.querySelector('.modal-eleven-one');
+
+
+oneOne.onmouseover = function () {
+    overlayOneOne.classList.add("show")
+}
+eightTwo.onmouseover = function () {
+    overlayEightTwo.classList.add("show")
+}
+twoOne.onmouseover = function () {
+    overlayTwoOne.classList.add("show")
+}
+sevenOne.onmouseover = function () {
+    overlaySevenOne.classList.add("show")
+}
+fourFive.onmouseover = function () {
+    overlayFourFive.classList.add("show")
+}
+fiveOne.onmouseover = function () {
+    overlayFiveOne.classList.add("show")
+}
+nineFour.onmouseover = function () {
+    overlayNineFour.classList.add("show")
+}
+elevenOne.onmouseover = function () {
+    overlayElevenOne.classList.add("show")
+}
+
+oneOne.onmouseout = function () {
+    overlayOneOne.classList.remove("show")
+}
+eightTwo.onmouseout = function () {
+    overlayEightTwo.classList.remove("show")
+}
+twoOne.onmouseout = function () {
+    overlayTwoOne.classList.remove("show")
+}
+sevenOne.onmouseout = function () {
+    overlaySevenOne.classList.remove("show")
+}
+fourFive.onmouseout = function () {
+    overlayFourFive.classList.remove("show")
+}
+fiveOne.onmouseout = function () {
+    overlayFiveOne.classList.remove("show")
+}
+nineFour.onmouseout = function () {
+    overlayNineFour.classList.remove("show")
+}
+elevenOne.onmouseout = function () {
+    overlayElevenOne.classList.remove("show")
+}
+
+
+// modal
+overlayOneOne.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalOneOne.querySelector('.modal-inner').scrollTop = 0;
+    modalOneOne.classList.add("open")
+}
+modalOneOne.onclick = function () {
+    modalOneOne.classList.remove("open")
+}
+modalOneOne.onmouseleave = function () {
+    modalOneOne.classList.remove("open")
+}
+
+overlayEightTwo.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalEightTwo.querySelector('.modal-inner').scrollTop = 0;
+    modalEightTwo.classList.add("open")
+}
+modalEightTwo.onclick = function () {
+    modalEightTwo.classList.remove("open")
+}
+modalEightTwo.onmouseleave = function () {
+    modalEightTwo.classList.remove("open")
+}
+
+overlayTwoOne.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalTwoOne.querySelector('.modal-inner').scrollTop = 0;
+    modalTwoOne.classList.add("open")
+}
+modalTwoOne.onclick = function () {
+    modalTwoOne.classList.remove("open")
+}
+modalTwoOne.onmouseleave = function () {
+    modalTwoOne.classList.remove("open")
+
+}
+
+overlayNineFour.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalNineFour.querySelector('.modal-inner').scrollTop = 0;
+    modalNineFour.classList.add("open")
+}
+modalNineFour.onclick = function () {
+    modalNineFour.classList.remove("open")
+}
+modalNineFour.onmouseleave = function () {
+    modalNineFour.classList.remove("open")
+}
+
+overlayFourFive.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalFourFive.querySelector('.modal-inner').scrollTop = 0;
+    modalFourFive.classList.add("open")
+}
+modalFourFive.onclick = function () {
+    modalFourFive.classList.remove("open")
+}
+modalFourFive.onmouseleave = function () {
+    modalFourFive.classList.remove("open")
+}
+
+overlaySevenOne.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalSevenOne.querySelector('.modal-inner').scrollTop = 0;
+    modalSevenOne.classList.add("open")
+}
+modalSevenOne.onclick = function () {
+    modalSevenOne.classList.remove("open")
+}
+modalSevenOne.onmouseleave = function () {
+    modalSevenOne.classList.remove("open")
+}
+
+overlayElevenOne.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalElevenOne.querySelector('.modal-inner').scrollTop = 0;
+    modalElevenOne.classList.add("open")
+}
+modalElevenOne.onclick = function () {
+    modalElevenOne.classList.remove("open")
+}
+modalElevenOne.onmouseleave = function () {
+    modalElevenOne.classList.remove("open")
+}
+
+overlayFiveOne.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalFiveOne.querySelector('.modal-inner').scrollTop = 0;
+    modalFiveOne.classList.add("open")
+}
+modalFiveOne.onclick = function () {
+    modalFiveOne.classList.remove("open")
+}
+modalFiveOne.onmouseleave = function () {
+    modalFiveOne.classList.remove("open")
+}
+
+
+// book2
+const sixSix = document.querySelector('.six-six');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+const renderer = new THREE.WebGLRenderer({ alpha: true });
+renderer.setSize(sixSix.offsetWidth, sixSix.offsetHeight);
+sixSix.appendChild(renderer.domElement);
+renderer.setClearColor(0xffffff, 0);
+
+const ambient = new THREE.AmbientLight(0x222222);
+scene.add(ambient);
+
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0.9);
+directionalLight.position.set(0, 0, 6)
+scene.add(directionalLight);
+
+const texture = new THREE.TextureLoader();
+
+const urls = [
+    "../images/side.png", "../images/spine.png",
+    "../images/bottom2.png", "../images/bottom2.png",
+    "../images/front.png", "../images/back.png"
+]
+const materials = urls.map(url => {
+    return new THREE.MeshLambertMaterial({
+        map: texture.load(url)
+    })
 })
 
+const geometry = new THREE.BoxGeometry(3.5, 4.5, 0.4);
+
+const cube = new THREE.Mesh(geometry, materials);
+scene.add(cube);
+
+camera.position.z = 6;
+
+function animate2() {
+    requestAnimationFrame(animate2);
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+
+    renderer.render(scene, camera);
+}
+animate2();
 
 
-// contacts
-'use strict'
+// form
+var form = document.getElementById("my-form");
 
-// create spans for every letter in contacts div
-function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr) }
-
-function makeSpans(selector) {
-    var _document$querySelect = document.querySelectorAll(selector);
-    var _document$querySelect2 = _toArray(_document$querySelect);
-    var elements = _document$querySelect2.slice(0);
-
-    return elements.map(function (element) {
-        var text = element.innerText.split('');
-        var spans = text.map(function (letter) {
-            return '<span>' + letter + '</span>'
-        }).join('');
-        return element.innerHTML = spans
+async function handleSubmit(event) {
+    event.preventDefault();
+    var status = document.getElementById("status");
+    var data = new FormData(event.target);
+    fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        status.classList.add('success');
+        status.innerHTML = "Thank you!";
+        form.reset();
+    }).catch(error => {
+        status.classList.add('error');
+        status.innerHTML = "Oops! There was a problem submitting your idea"
     });
-};
-
-// usage with single selector
-makeSpans('.contacts');
-
-
-
+}
+form.addEventListener("submit", handleSubmit)

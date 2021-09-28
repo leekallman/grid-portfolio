@@ -10,17 +10,18 @@ const sketch01 = function (a) {
         a.createCanvas(w, h);
 
         graphics = a.createGraphics(w, h);
-        graphics.fill('#fff');
-        graphics.textFont('Syne-bold');
+        graphics.fill('#000');
+        graphics.textFont('Inter-var');
         graphics.textAlign(a.CENTER, a.CENTER);
         graphics.textSize(w);
-        graphics.text('ö', w / 2, h / 2);
+        graphics.text('hi', w / 2, h / 1.5);
     };
     a.draw = function () {
-        a.background("#000");
+        a.clear();
+        a.background(255, 0, 0, 0);
         a.tileSize = 50;
-        for (let x = 0; x < 12; x = x + 1) {
-            for (let y = 0; y < 12; y = y + 1) {
+        for (let x = 0; x < 10; x = x + 1) {
+            for (let y = 0; y < 10; y = y + 1) {
 
                 a.distortion = a.sin(a.frameCount * 0.05 + x * 0.5 + y * 0.3) * 50
                 //source
@@ -42,7 +43,7 @@ const sketch01 = function (a) {
         a.resizeCanvas(fourTwo.offsetWidth, fourTwo.offsetHeight);
     };
 };
-const mysketch01 = new p5(sketch01, 'fourTwo');
+const mysketch01 = new p5(sketch01, fourTwo);
 
 // // sketch02
 // const ten = document.querySelector('.ten');
@@ -88,61 +89,168 @@ const mysketch01 = new p5(sketch01, 'fourTwo');
 // };
 // var mysketch02 = new p5(sketch02, 'ten');
 
-// // sketch03
-// const seventeen = document.querySelector('.seventeen');
-// const patterns = document.querySelector('.patterns')
-// let w3 = seventeen.offsetWidth;
-// let h3 = seventeen.offsetHeight;
+const nineOne = document.querySelector('.nine-one');
 
-// patterns.width = w3;
-// patterns.height = h3;
+let numBalls = 13;
+let spring = 0.05;
+let gravity = 0.03;
+let friction = -0.9;
+let balls = [];
 
-// // const canvas2 = document.getElementById('defaultCanvas2');
-// // console.log(canvas2)
-// patterns.style.width = w3 + "px";
-// patterns.style.height = h3 + "px";
+const sketch02 = function (b) {
+    b.setup = function () {
+        let w2 = nineOne.offsetWidth;
+        let h2 = nineOne.offsetHeight;
+        b.createCanvas(w2, h2);
+        for (let i = 0; i < numBalls; i++) {
+            balls[i] = new Ball(
+                b.random(b.width),
+                b.random(b.height),
+                b.random(30, 70),
+                i,
+                balls
+            );
+        }
+        b.fill("#000");
+    }
 
-// const context = patterns.getContext("2d");
-// context.scale(2, 2);
-// seventeen.appendChild(patterns);
+    b.draw = function () {
+        b.clear();
+        b.background(255, 0, 0, 0);
+        balls.forEach(ball => {
+            ball.collide();
+            ball.move();
+            ball.display();
+            ball.draw();
+        });
+    }
 
-// //hold and aim for the X, when we load/the cursor is not on the page - aimX = null
-// let aimX = null;
-// let aimY = null;
-// let currentX = null;
-// let currentY = null;
+    class Ball {
+        constructor(xin, yin, din, idin, oin) {
+            this.x = xin;
+            this.y = yin;
+            this.vx = 0;
+            this.vy = 0;
+            this.diameter = din;
+            this.id = idin;
+            this.others = oin;
+        }
 
-// let i = 0;
-// const images = ["images/image1.jpg", "images/image2.jpg", "images/image3.jpg", "images/image4.jpg", "images/image5.jpg"].map(src => {
-//     const image = document.createElement("img");
-//     image.src = src;
-//     return image;
-// });
+        collide() {
+            for (let i = this.id + 1; i < numBalls; i++) {
+                let dx = this.others[i].x - this.x;
+                let dy = this.others[i].y - this.y;
+                let distance = b.sqrt(dx * dx + dy * dy);
+                let minDist = this.others[i].diameter / 2 + this.diameter / 2;
+                if (distance < minDist) {
+                    let angle = b.atan2(dy, dx);
+                    let targetX = this.x + b.cos(angle) * minDist;
+                    let targetY = this.y + b.sin(angle) * minDist;
+                    let ax = (targetX - this.others[i].x) * spring;
+                    let ay = (targetY - this.others[i].y) * spring;
+                    this.vx -= ax;
+                    this.vy -= ay;
+                    this.others[i].vx += ax;
+                    this.others[i].vy += ay;
+                }
+            }
+        }
+        draw() { }
 
-// document.addEventListener("mousemove", function(event) {
-//     aimX = event.pageX;
-//     aimY = event.pageY;
-//     if (currentX === null){
-//         currentX = event.pageX;
-//         currentY = event.pageY;
-//     };
-// });
+        move() {
+            this.vy += gravity;
+            this.x += this.vx;
+            this.y += this.vy;
+            if (this.x + this.diameter / 2 > b.width) {
+                this.x = b.width - this.diameter / 2;
+                this.vx *= friction;
+            } else if (this.x - this.diameter / 2 < 0) {
+                this.x = this.diameter / 2;
+                this.vx *= friction;
+            }
+            if (this.y + this.diameter / 2 > b.height) {
+                this.y = b.height - this.diameter / 2;
+                this.vy *= friction;
+            } else if (this.y - this.diameter / 2 < 0) {
+                this.y = this.diameter / 2;
+                this.vy *= friction;
+            }
+        }
 
-// document.addEventListener("click", function(){
-//     i = i + 1;
-//     if(i >= images.length){
-//         i = 0;
-//     };
-// });
+        display() {
+            b.ellipse(this.x, this.y, this.diameter, this.diameter);
+        }
+    }
 
-// const draw = function() {
-//     if (currentX){
-//         if(images[i].complete) {
-//             context.drawImage(images[i], currentX - 200, currentY - 300, 400, 600);
-//         };
-//         currentX = currentX + (aimX - currentX) * 0.1;
-//         currentY = currentY + (aimY - currentY) * 0.1;
-//     };
-//     requestAnimationFrame(draw);
-// }; 
-// draw();
+    b.windowResized = function () {
+        b.resizeCanvas(nineOne.offsetWidth, nineOne.offsetHeight);
+    };
+};
+const mysketch02 = new p5(sketch02, nineOne);
+
+// lisa
+const sketch03 = document.querySelector('.me');
+const sandbox = new GlslCanvas(sketch03);
+
+const frag = `
+precision highp float;
+
+uniform float u_time;
+uniform vec2 resolution;
+uniform vec2 mouse;
+uniform vec3 spectrum;
+
+uniform sampler2D image;
+
+varying vec3 v_normal;
+varying vec2 v_texcoord;
+
+#define NUM_OCTAVES 5
+
+float rand(vec2 n) { 
+    return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
+}
+
+float noise(vec2 p){
+    vec2 ip = floor(p);
+    vec2 u = fract(p);
+    u = u*u*(3.0-2.0*u);
+    
+    float res = mix(
+        mix(rand(ip),rand(ip+vec2(1.0,0.0)),u.x),
+        mix(rand(ip+vec2(0.0,1.0)),rand(ip+vec2(1.0,1.0)),u.x),u.y);
+    return res*res;
+}
+
+float fbm(vec2 x) {
+    float v = 0.0;
+    float a = 0.5;
+    vec2 shift = vec2(100);
+    // Rotate to reduce axial bias
+    mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.50));
+    for (int i = 0; i < NUM_OCTAVES; ++i) {
+        v += a * noise(x);
+        x = rot * x * 2.0 + shift;
+        a *= 0.5;
+    }
+    return v;
+}
+
+
+void main(void)
+{
+    vec2 uv = v_texcoord;
+    
+    float strength = smoothstep(0.4, 0.1, uv.y);
+    vec2 surface = strength * vec2(
+    mix(-0.3, 0.3, fbm(5.0*uv + 0.5*u_time)), 
+    mix(-0.3, 0.3, fbm(5.0*uv + 0.5*u_time))
+    );
+    
+    uv += refract(vec2(0.0, 0.0), surface, 1.0/1.333);
+    vec4 color = texture2D(image, uv);
+    gl_FragColor = color;
+}`;
+
+sandbox.load(frag);
+sandbox.setUniform('image', '../images/lisa.png');
