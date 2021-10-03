@@ -89,104 +89,104 @@ const mysketch01 = new p5(sketch01, fourTwo);
 // };
 // var mysketch02 = new p5(sketch02, 'ten');
 
-const nineOne = document.querySelector('.nine-one');
+// const nineOne = document.querySelector('.nine-one');
 
-let numBalls = 13;
-let spring = 0.05;
-let gravity = 0.03;
-let friction = -0.9;
-let balls = [];
+// let numBalls = 13;
+// let spring = 0.05;
+// let gravity = 0.03;
+// let friction = -0.9;
+// let balls = [];
 
-const sketch02 = function (b) {
-    b.setup = function () {
-        let w2 = nineOne.offsetWidth;
-        let h2 = nineOne.offsetHeight;
-        b.createCanvas(w2, h2);
-        for (let i = 0; i < numBalls; i++) {
-            balls[i] = new Ball(
-                b.random(b.width),
-                b.random(b.height),
-                b.random(30, 70),
-                i,
-                balls
-            );
-        }
-        b.fill("#000");
-    }
+// const sketch02 = function (b) {
+//     b.setup = function () {
+//         let w2 = nineOne.offsetWidth;
+//         let h2 = nineOne.offsetHeight;
+//         b.createCanvas(w2, h2);
+//         for (let i = 0; i < numBalls; i++) {
+//             balls[i] = new Ball(
+//                 b.random(b.width),
+//                 b.random(b.height),
+//                 b.random(30, 70),
+//                 i,
+//                 balls
+//             );
+//         }
+//         b.fill("#000");
+//     }
 
-    b.draw = function () {
-        b.clear();
-        b.background(255, 0, 0, 0);
-        balls.forEach(ball => {
-            ball.collide();
-            ball.move();
-            ball.display();
-            ball.draw();
-        });
-    }
+//     b.draw = function () {
+//         b.clear();
+//         b.background(255, 0, 0, 0);
+//         balls.forEach(ball => {
+//             ball.collide();
+//             ball.move();
+//             ball.display();
+//             ball.draw();
+//         });
+//     }
 
-    class Ball {
-        constructor(xin, yin, din, idin, oin) {
-            this.x = xin;
-            this.y = yin;
-            this.vx = 0;
-            this.vy = 0;
-            this.diameter = din;
-            this.id = idin;
-            this.others = oin;
-        }
+//     class Ball {
+//         constructor(xin, yin, din, idin, oin) {
+//             this.x = xin;
+//             this.y = yin;
+//             this.vx = 0;
+//             this.vy = 0;
+//             this.diameter = din;
+//             this.id = idin;
+//             this.others = oin;
+//         }
 
-        collide() {
-            for (let i = this.id + 1; i < numBalls; i++) {
-                let dx = this.others[i].x - this.x;
-                let dy = this.others[i].y - this.y;
-                let distance = b.sqrt(dx * dx + dy * dy);
-                let minDist = this.others[i].diameter / 2 + this.diameter / 2;
-                if (distance < minDist) {
-                    let angle = b.atan2(dy, dx);
-                    let targetX = this.x + b.cos(angle) * minDist;
-                    let targetY = this.y + b.sin(angle) * minDist;
-                    let ax = (targetX - this.others[i].x) * spring;
-                    let ay = (targetY - this.others[i].y) * spring;
-                    this.vx -= ax;
-                    this.vy -= ay;
-                    this.others[i].vx += ax;
-                    this.others[i].vy += ay;
-                }
-            }
-        }
-        draw() { }
+//         collide() {
+//             for (let i = this.id + 1; i < numBalls; i++) {
+//                 let dx = this.others[i].x - this.x;
+//                 let dy = this.others[i].y - this.y;
+//                 let distance = b.sqrt(dx * dx + dy * dy);
+//                 let minDist = this.others[i].diameter / 2 + this.diameter / 2;
+//                 if (distance < minDist) {
+//                     let angle = b.atan2(dy, dx);
+//                     let targetX = this.x + b.cos(angle) * minDist;
+//                     let targetY = this.y + b.sin(angle) * minDist;
+//                     let ax = (targetX - this.others[i].x) * spring;
+//                     let ay = (targetY - this.others[i].y) * spring;
+//                     this.vx -= ax;
+//                     this.vy -= ay;
+//                     this.others[i].vx += ax;
+//                     this.others[i].vy += ay;
+//                 }
+//             }
+//         }
+//         draw() { }
 
-        move() {
-            this.vy += gravity;
-            this.x += this.vx;
-            this.y += this.vy;
-            if (this.x + this.diameter / 2 > b.width) {
-                this.x = b.width - this.diameter / 2;
-                this.vx *= friction;
-            } else if (this.x - this.diameter / 2 < 0) {
-                this.x = this.diameter / 2;
-                this.vx *= friction;
-            }
-            if (this.y + this.diameter / 2 > b.height) {
-                this.y = b.height - this.diameter / 2;
-                this.vy *= friction;
-            } else if (this.y - this.diameter / 2 < 0) {
-                this.y = this.diameter / 2;
-                this.vy *= friction;
-            }
-        }
+//         move() {
+//             this.vy += gravity;
+//             this.x += this.vx;
+//             this.y += this.vy;
+//             if (this.x + this.diameter / 2 > b.width) {
+//                 this.x = b.width - this.diameter / 2;
+//                 this.vx *= friction;
+//             } else if (this.x - this.diameter / 2 < 0) {
+//                 this.x = this.diameter / 2;
+//                 this.vx *= friction;
+//             }
+//             if (this.y + this.diameter / 2 > b.height) {
+//                 this.y = b.height - this.diameter / 2;
+//                 this.vy *= friction;
+//             } else if (this.y - this.diameter / 2 < 0) {
+//                 this.y = this.diameter / 2;
+//                 this.vy *= friction;
+//             }
+//         }
 
-        display() {
-            b.ellipse(this.x, this.y, this.diameter, this.diameter);
-        }
-    }
+//         display() {
+//             b.ellipse(this.x, this.y, this.diameter, this.diameter);
+//         }
+//     }
 
-    b.windowResized = function () {
-        b.resizeCanvas(nineOne.offsetWidth, nineOne.offsetHeight);
-    };
-};
-const mysketch02 = new p5(sketch02, nineOne);
+//     b.windowResized = function () {
+//         b.resizeCanvas(nineOne.offsetWidth, nineOne.offsetHeight);
+//     };
+// };
+// const mysketch02 = new p5(sketch02, nineOne);
 
 // lisa
 const sketch03 = document.querySelector('.me');

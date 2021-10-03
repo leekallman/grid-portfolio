@@ -114,18 +114,21 @@ document.querySelector(".input").addEventListener("input", function () {
 });
 
 // ellipses
-const ellipse = document.querySelector('.ellipse2');
-ellipse.addEventListener("mousemove", function () {
-    ellipse.style.animation = "drop 0.2s forwards";
-})
+// const ellipse = document.querySelector('.ellipse2');
+// ellipse.addEventListener("mouseover", function () {
+//     ellipse.style.animation = "hinge 2s forwards";
+// })
+
 let overlayEightTwo = document.querySelector('.overlay-eight-two');
 let overlayOneOne = document.querySelector('.overlay-one-one');
 let overlayTwoOne = document.querySelector('.overlay-two-one');
 let overlaySevenOne = document.querySelector('.overlay-seven-one');
 let overlayFourFive = document.querySelector('.overlay-four-five');
 let overlayFiveOne = document.querySelector('.overlay-five-one');
+let overlayNineOne = document.querySelector('.overlay-nine-one');
 let overlayNineFour = document.querySelector('.overlay-nine-four');
 let overlayElevenOne = document.querySelector('.overlay-eleven-one');
+let overlayTwelveFour = document.querySelector('.overlay-twelve-four');
 
 let oneOne = document.querySelector('.one-one');
 let eightTwo = document.querySelector('.eight-two');
@@ -133,18 +136,23 @@ let twoOne = document.querySelector('.two-one');
 let sevenOne = document.querySelector('.seven-one');
 let fourFive = document.querySelector('.four-five');
 let fiveOne = document.querySelector('.five-one');
+let nineOne = document.querySelector('.nine-one');
 let nineFour = document.querySelector('.nine-four');
 let elevenOne = document.querySelector('.eleven-one');
+let sixFour = document.querySelector('.six-four');
+let twelveFour = document.querySelector('.twelve-four');
 
 let modalOneOne = document.querySelector('.modal-one-one');
 let modalEightTwo = document.querySelector('.modal-eight-two');
 let modalTwoOne = document.querySelector('.modal-two-one');
+let modalNineOne = document.querySelector('.modal-nine-one');
 let modalNineFour = document.querySelector('.modal-nine-four');
 let modalFourFive = document.querySelector('.modal-four-five');
 let modalFiveOne = document.querySelector('.modal-five-one');
 let modalSevenOne = document.querySelector('.modal-seven-one');
 let modalElevenOne = document.querySelector('.modal-eleven-one');
-
+let modalSixFour = document.querySelector('.modal-six-four');
+let modalTwelveFour = document.querySelector('.modal-twelve-four');
 
 oneOne.onmouseover = function () {
     overlayOneOne.classList.add("show")
@@ -164,12 +172,19 @@ fourFive.onmouseover = function () {
 fiveOne.onmouseover = function () {
     overlayFiveOne.classList.add("show")
 }
+nineOne.onmouseover = function () {
+    overlayNineOne.classList.add("show")
+}
 nineFour.onmouseover = function () {
     overlayNineFour.classList.add("show")
 }
 elevenOne.onmouseover = function () {
     overlayElevenOne.classList.add("show")
 }
+twelveFour.onmouseover = function () {
+    overlayTwelveFour.classList.add("show")
+}
+
 
 oneOne.onmouseout = function () {
     overlayOneOne.classList.remove("show")
@@ -189,11 +204,17 @@ fourFive.onmouseout = function () {
 fiveOne.onmouseout = function () {
     overlayFiveOne.classList.remove("show")
 }
+nineOne.onmouseout = function () {
+    overlayNineOne.classList.remove("show")
+}
 nineFour.onmouseout = function () {
     overlayNineFour.classList.remove("show")
 }
 elevenOne.onmouseout = function () {
     overlayElevenOne.classList.remove("show")
+}
+twelveFour.onmouseout = function () {
+    overlayTwelveFour.classList.remove("show")
 }
 
 
@@ -242,6 +263,20 @@ modalTwoOne.onclick = function () {
 modalTwoOne.onmouseleave = function () {
     modalTwoOne.classList.remove("open")
 
+}
+overlayNineOne.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalNineOne.querySelector('.modal-inner').scrollTop = 0;
+    modalNineOne.classList.add("open")
+}
+modalNineOne.onclick = function () {
+    modalNineOne.classList.remove("open")
+}
+modalNineOne.onmouseleave = function () {
+    modalNineOne.classList.remove("open")
 }
 
 overlayNineFour.onclick = function () {
@@ -319,6 +354,36 @@ modalFiveOne.onmouseleave = function () {
     modalFiveOne.classList.remove("open")
 }
 
+sixFour.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalSixFour.querySelector('.modal-inner').scrollTop = 0;
+    modalSixFour.classList.add("open")
+}
+modalSixFour.onclick = function () {
+    modalSixFour.classList.remove("open")
+}
+modalSixFour.onmouseleave = function () {
+    modalSixFour.classList.remove("open")
+}
+
+twelveFour.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalTwelveFour.querySelector('.modal-inner').scrollTop = 0;
+    modalTwelveFour.classList.add("open")
+}
+modalTwelveFour.onclick = function () {
+    modalTwelveFour.classList.remove("open")
+}
+modalTwelveFour.onmouseleave = function () {
+    modalTwelveFour.classList.remove("open")
+}
+
 
 // book2
 const sixSix = document.querySelector('.six-six');
@@ -350,7 +415,7 @@ const materials = urls.map(url => {
     })
 })
 
-const geometry = new THREE.BoxGeometry(3.5, 4.5, 0.4);
+const geometry = new THREE.BoxGeometry(4.5, 4, 0.4);
 
 const cube = new THREE.Mesh(geometry, materials);
 scene.add(cube);
@@ -359,7 +424,7 @@ camera.position.z = 6;
 
 function animate2() {
     requestAnimationFrame(animate2);
-    cube.rotation.x += 0.01;
+    // cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
 
     renderer.render(scene, camera);
@@ -367,29 +432,35 @@ function animate2() {
 animate2();
 
 
-// form
-var form = document.getElementById("my-form");
+// // form
+// var form = document.getElementById("my-form");
 
-async function handleSubmit(event) {
-    event.preventDefault();
-    var status = document.getElementById("status");
-    var data = new FormData(event.target);
-    fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: {
-            'Accept': 'application/json'
-        }
-    }).then(response => {
-        if (!response.ok) {
-            throw Error(response.statusText);
-        }
-        status.classList.add('success');
-        status.innerHTML = "Thank you!";
-        form.reset();
-    }).catch(error => {
-        status.classList.add('error');
-        status.innerHTML = "Oops! There was a problem submitting your idea"
-    });
+// async function handleSubmit(event) {
+//     event.preventDefault();
+//     var status = document.getElementById("status");
+//     var data = new FormData(event.target);
+//     fetch(event.target.action, {
+//         method: form.method,
+//         body: data,
+//         headers: {
+//             'Accept': 'application/json'
+//         }
+//     }).then(response => {
+//         if (!response.ok) {
+//             throw Error(response.statusText);
+//         }
+//         status.classList.add('success');
+//         status.innerHTML = "Thank you!";
+//         form.reset();
+//     }).catch(error => {
+//         status.classList.add('error');
+//         status.innerHTML = "Oops! There was a problem submitting your idea"
+//     });
+// }
+// form.addEventListener("submit", handleSubmit)
+
+// kanye
+let kanye = document.querySelector('.kanye');
+kanye.onmouseover = function () {
+    kanye.style.animation = "kanye 1s";
 }
-form.addEventListener("submit", handleSubmit)
