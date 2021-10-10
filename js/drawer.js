@@ -14,13 +14,6 @@ let aimY2 = null
 let currentX2 = null
 let currentY2 = null
 
-let i = 0
-const images = ["images/image1.jpg", "images/image2.jpg", "images/image3.jpg", "images/image4.jpg", "images/image5.jpg"].map(src => {
-    const image = document.createElement("img")
-    image.src = src
-    return image
-})
-
 canvasTag.addEventListener("mousemove", function (event) {
     aimX2 = event.pageX
     aimY2 = event.pageY
@@ -47,5 +40,10 @@ const draw = function () {
     }
     requestAnimationFrame(draw)
 }
-
-draw();
+let i = 0
+const images = ["images/image1.jpg", "images/image2.jpg", "images/image3.jpg", "images/image4.jpg", "images/image5.jpg"].map(src => {
+    const image = document.createElement("img")
+    image.src = src
+    image.onload = draw();
+    return image
+})
