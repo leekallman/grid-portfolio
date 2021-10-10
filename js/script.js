@@ -405,9 +405,9 @@ scene.add(directionalLight);
 const texture = new THREE.TextureLoader();
 
 const urls = [
-    "../images/side.png", "../images/spine.png",
-    "../images/bottom2.png", "../images/bottom2.png",
-    "../images/front.png", "../images/back.png"
+    "images/side.png", "images/spine.png",
+    "images/bottom2.png", "images/bottom2.png",
+    "images/front.png", "images/back.png"
 ]
 const materials = urls.map(url => {
     return new THREE.MeshLambertMaterial({
