@@ -376,7 +376,7 @@ body {
 
 /* clock */
 .clock {
-  display: flex;
+  position: relative;
   margin: 2rem;
 }
 .clock img {
@@ -384,12 +384,12 @@ body {
 }
 .dial {
   position: absolute;
-  bottom: 50%;
+  top: 50%;
   left: 50%;
-  transform-origin: bottom left;
   width: 7px;
   background-color: #ffbdd7;
-  border-radius: 0%;
+  border-radius: 20px;
+  transform-origin: top center;
 }
 .seconds {
   background-color: #000;
@@ -398,12 +398,9 @@ body {
 }
 .minutes {
   height: 75px;
-  left: 50%;
-  bottom: 50%;
 }
 .hours {
   height: 60px;
-  left: 50%;
 }
 
 /* who I am */
