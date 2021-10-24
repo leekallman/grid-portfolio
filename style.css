@@ -366,6 +366,7 @@ body {
   background-color: #000;
   height: 80px;
   width: 2px;
+  border-radius: 50px;
 }
 .minutes {
   height: 75px;
