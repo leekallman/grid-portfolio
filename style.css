@@ -928,7 +928,7 @@ input[type="range"]::-ms-fill-upper {
   }
   .ellipse1 img,
   .ellipse2 img {
-    width: 40vw;
+    width: 45vw;
   }
   .ellipse1 a,
   .ellipse2 a {
@@ -943,9 +943,6 @@ input[type="range"]::-ms-fill-upper {
     font-size: 0.9rem;
     line-height: 1.2rem;
   }
-  .seconds {
-    width: 1px;
-  }
 }
 
 @media screen and (max-width: 400px) {
@@ -958,5 +955,8 @@ input[type="range"]::-ms-fill-upper {
   }
   .dial {
     width: 3px;
+  }
+  .seconds {
+    width: 1px;
   }
 }
