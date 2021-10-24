@@ -394,8 +394,8 @@ body {
 .phrase {
   margin: 1rem auto 5rem auto;
   width: 80%;
-  font-size: 1em;
-  line-height: 1.5em;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 input {
@@ -409,7 +409,6 @@ input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
   cursor: pointer;
   animation: 0.2s;
-  /* box-shadow: 1px 1px 1px #ffffff; */
   border-radius: 50px;
   border: none;
   background: #000;
@@ -651,7 +650,6 @@ input[type="range"]::-ms-fill-upper {
 .img-content {
   margin-top: 1rem;
   grid-column: 2/16;
-  /* grid-row: 3/4; */
   display: grid;
   grid-template-columns: repeat(14, 1fr);
   font-size: 0.7rem;
@@ -669,7 +667,7 @@ input[type="range"]::-ms-fill-upper {
 }
 .kanye-quotes {
   max-width: 190px;
-  margin-right: 2vw;
+  margin: 0 2vw 2vh 0;
 }
 .motherly-front {
   max-width: 122px;
@@ -875,9 +873,16 @@ input[type="range"]::-ms-fill-upper {
   .column3 {
     grid-column: 8/16;
   }
+  .modal-heading {
+    font-size: 7vw;
+  }
   .img-content {
     display: flex;
     flex-wrap: wrap;
+  }
+  .front,
+  .pages {
+    width: 90vw;
   }
   .clock img {
     width: 20vw;
@@ -899,5 +904,41 @@ input[type="range"]::-ms-fill-upper {
   }
   .cv {
     font-size: 7vw;
+  }
+  .ellipse1,
+  .ellipse2 {
+    left: 7vw;
+  }
+  .ellipse1 {
+    top: 11vh;
+  }
+  .ellipse1 img,
+  .ellipse2 img {
+    width: 40vw;
+  }
+  .ellipse1 a,
+  .ellipse2 a {
+    font-size: 7vw;
+  }
+}
+@media screen and (max-width: 500px) {
+  .ellipse1 {
+    top: 12vh;
+  }
+  .phrase {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .front {
+    max-width: 350px;
+    margin-right: 2vw;
+  }
+  .front {
+    max-width: 300px;
+  }
+  .dial {
+    width: 3px;
   }
 }
