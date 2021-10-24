@@ -336,7 +336,6 @@ const createShape = function (x, y) {
                 }
             }
         })
-
     }
 }
 
