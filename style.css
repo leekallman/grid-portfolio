@@ -91,7 +91,7 @@ body {
   overflow-y: hidden;
 }
 
-.projectGrid div {
+.projectGrid > div {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
@@ -125,7 +125,6 @@ body {
   filter: hue-rotate(270deg) saturate(2);
   opacity: 0.2;
 }
-
 .show {
   font-family: Syne;
   opacity: 1;
@@ -869,7 +868,7 @@ input[type="range"]::-ms-fill-upper {
     grid-column: 8/16;
   }
   .modal {
-    transition: transform 1s ease;
+    transition: transform 2s ease;
   }
   .italic {
     font-size: 1rem;
