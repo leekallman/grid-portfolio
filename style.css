@@ -424,7 +424,6 @@ input[type="range"]::-ms-track {
 
 input[type="range"]::-moz-range-track {
   width: 100%;
-  height: 13px;
   cursor: pointer;
   animation: 0.2s;
   border-radius: 50px;
@@ -432,8 +431,6 @@ input[type="range"]::-moz-range-track {
 
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  /* box-shadow: 0px 0px 2px #000000;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
   height: 25px;
   width: 25px;
   border-radius: 50px;
@@ -605,7 +602,7 @@ input[type="range"]::-ms-fill-upper {
   margin-bottom: 1rem;
 }
 .open {
-  transform: translateX(0);
+  transform: translateY(0);
 }
 .modal-heading {
   grid-column: 2/16;
@@ -874,6 +871,9 @@ input[type="range"]::-ms-fill-upper {
   }
   .column3 {
     grid-column: 8/16;
+  }
+  .modal {
+    height: 100vh;
   }
   .modal-heading {
     font-size: 7vw;
