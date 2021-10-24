@@ -94,6 +94,8 @@ body {
 .projectGrid div {
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
 }
 .overlay {
   opacity: 0;
@@ -101,11 +103,8 @@ body {
   height: 100%;
   position: relative;
   transition: all 0.5s ease-in-out;
-  display: flex;
-  justify-content: center; /* align horizontal */
+  justify-content: center;
   align-items: center;
-}
-.overlay-wrapper {
 }
 
 .overlay h2 {
@@ -888,7 +887,8 @@ input[type="range"]::-ms-fill-upper {
     flex-wrap: wrap;
   }
   .front,
-  .pages {
+  .pages,
+  .brief {
     width: 90vw;
   }
   .ten-two-inner,
