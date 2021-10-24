@@ -1,38 +1,3 @@
-// // Panning
-// let panTag = document.querySelector('.projectGrid');
-// let currentX = 0;
-// let currentY = 0;
-// let aimX = 0;
-// let aimY = 0;
-
-// document.addEventListener("mousemove", function (event) {
-//     const windowWidth = window.innerWidth;
-//     const windowHeight = window.innerHeight;
-
-//     const worldWidth = panTag.clientWidth;
-//     const worldHeight = panTag.clientHeight;
-//     const mouseX = event.pageX;
-//     const mouseY = event.pageY;
-//     const panWidth = worldWidth - windowWidth;
-//     const panHeight = worldHeight - windowHeight;
-//     const percentageX = mouseX / windowWidth;
-//     const percentageY = mouseY / windowHeight;
-
-//     aimX = -1 * panWidth * percentageX;
-//     aimY = -1 * panHeight * percentageY;
-// })
-
-
-// const animate = () => {
-//     currentX += (aimX - currentX) * 0.1;
-//     currentY += (aimY - currentY) * 0.1;
-
-//     panTag.style.left = currentX + "px";
-//     panTag.style.top = currentY + "px";
-//     requestAnimationFrame(animate)
-// }
-// animate();
-
 // letters
 const letterBox = document.querySelector('.one-four');
 const letters = ['D', 'I', 'V', 'E', 'R', 'S', 'I', 'T', 'Y', 'D', 'I', 'V', 'E', 'R', 'S', 'I', 'T', 'Y', 'D', 'I', 'V',
@@ -113,11 +78,6 @@ document.querySelector(".input").addEventListener("input", function () {
     document.querySelector(".phrase").innerHTML = phrase;
 });
 
-// ellipses
-// const ellipse = document.querySelector('.ellipse2');
-// ellipse.addEventListener("mouseover", function () {
-//     ellipse.style.animation = "hinge 2s forwards";
-// })
 
 let overlayEightTwo = document.querySelector('.overlay-eight-two');
 let overlayOneOne = document.querySelector('.overlay-one-one');

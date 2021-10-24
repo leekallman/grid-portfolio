@@ -351,7 +351,7 @@ const leftWall = Bodies.rectangle(-50, h / 2, 100, h + 100, wallOptions)
 const rightWall = Bodies.rectangle(w + 50, h / 2, 100, h + 100, wallOptions)
 const ceiling = Bodies.rectangle(w / 2, -50, w + 100, 100, wallOptions)
 
-const shapes = Composites.stack(50, 50, 8, 3, 20, 20, function (x, y) {
+const shapes = Composites.stack(50, 50, 8, 2, 20, 20, function (x, y) {
     return createShape(x, y)
 })
 
