@@ -868,10 +868,10 @@ input[type="range"]::-ms-fill-upper {
     grid-column: 8/16;
   }
   .modal {
-    transition: transform 2s ease;
+    transition: transform 1.5s ease;
   }
   .italic {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
   .modal-heading {
     font-size: 7vw;
@@ -957,7 +957,7 @@ input[type="range"]::-ms-fill-upper {
     max-width: 300px;
   }
   .dial {
-    width: 3px;
+    width: 2px;
   }
   .seconds {
     width: 1px;
