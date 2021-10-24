@@ -102,13 +102,10 @@ body {
   position: relative;
   transition: all 0.5s ease-in-out;
   display: flex;
-  flex-direction: column;
+  justify-content: center; /* align horizontal */
+  align-items: center;
 }
 .overlay-wrapper {
-  margin: auto;
-  /* align-items: center;
-  justify-content: center; */
-  align-content: space-between;
 }
 
 .overlay h2 {
@@ -873,7 +870,8 @@ input[type="range"]::-ms-fill-upper {
     grid-column: 8/16;
   }
   .modal {
-    height: 100vh;
+    height: 50vh;
+    transition: transform 0.9s ease;
   }
   .modal-heading {
     font-size: 7vw;
@@ -943,6 +941,7 @@ input[type="range"]::-ms-fill-upper {
   }
   .phrase {
     font-size: 0.9rem;
+    line-height: 1.2rem;
   }
   .seconds {
     width: 1px;
