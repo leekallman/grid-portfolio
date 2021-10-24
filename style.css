@@ -868,7 +868,7 @@ input[type="range"]::-ms-fill-upper {
     grid-column: 8/16;
   }
   .modal {
-    transition: transform 1.5s ease;
+    transition: transform 1s ease;
   }
   .italic {
     font-size: 0.8rem;
@@ -949,13 +949,6 @@ input[type="range"]::-ms-fill-upper {
 }
 
 @media screen and (max-width: 400px) {
-  .front {
-    max-width: 350px;
-    margin-right: 2vw;
-  }
-  .front {
-    max-width: 300px;
-  }
   .dial {
     width: 2px;
   }
