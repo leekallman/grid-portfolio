@@ -766,6 +766,7 @@ input[type="range"]::-ms-fill-upper {
   .one-two {
     grid-column: 4/6;
     grid-row: 1/2;
+    min-height: 300px;
   }
   .one-three {
     grid-column: 1/3;
