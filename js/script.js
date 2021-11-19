@@ -361,9 +361,9 @@ scene.add(directionalLight);
 const texture = new THREE.TextureLoader();
 
 const urls = [
-    "images/side.png", "images/spine.png",
-    "images/bottom2.png", "images/bottom2.png",
-    "images/front.png", "images/back.png"
+    "images/side.webp", "images/spine.webp",
+    "images/bottom2.webp", "images/bottom2.webp",
+    "images/front.webp", "images/back.webp"
 ]
 const materials = urls.map(url => {
     return new THREE.MeshLambertMaterial({
@@ -428,7 +428,7 @@ const createShape = function (x, y) {
             friction: 1,
             render: {
                 sprite: {
-                    texture: "images/react.png",
+                    texture: "images/react.webp",
                     xScale: 0.5,
                     yScale: 0.5
                 }
@@ -444,7 +444,7 @@ const createShape = function (x, y) {
         return Bodies.rectangle(x, y, 50, 25, {
             render: {
                 sprite: {
-                    texture: "images/css.png",
+                    texture: "images/css.webp",
                     xScale: 0.5,
                     yScale: 0.5
                 }
@@ -460,7 +460,7 @@ const createShape = function (x, y) {
         return Bodies.rectangle(x, y, 50, 25, {
             render: {
                 sprite: {
-                    texture: "images/html.png",
+                    texture: "images/html.webp",
                     xScale: 0.5,
                     yScale: 0.5
                 }
@@ -476,7 +476,7 @@ const createShape = function (x, y) {
         return Bodies.rectangle(x, y, 50, 25, {
             render: {
                 sprite: {
-                    texture: "images/postman.png",
+                    texture: "images/postman.webp",
                     xScale: 0.5,
                     yScale: 0.5
                 }
@@ -492,7 +492,7 @@ const createShape = function (x, y) {
         return Bodies.rectangle(x, y, 50, 25, {
             render: {
                 sprite: {
-                    texture: "images/styledComponents.png",
+                    texture: "images/styledComponents.webp",
                     xScale: 0.5,
                     yScale: 0.5
                 }
@@ -508,7 +508,7 @@ const createShape = function (x, y) {
         return Bodies.rectangle(x, y, 50, 25, {
             render: {
                 sprite: {
-                    texture: "images/git.png",
+                    texture: "images/git.webp",
                     xScale: 0.5,
                     yScale: 0.5
                 }
@@ -524,7 +524,7 @@ const createShape = function (x, y) {
         return Bodies.rectangle(x, y, 50, 25, {
             render: {
                 sprite: {
-                    texture: "images/figma.png",
+                    texture: "images/figma.webp",
                     xScale: 0.5,
                     yScale: 0.5
                 }
@@ -540,7 +540,7 @@ const createShape = function (x, y) {
         return Bodies.rectangle(x, y, 50, 25, {
             render: {
                 sprite: {
-                    texture: "images/contentful.png",
+                    texture: "images/contentful.webp",
                     xScale: 0.5,
                     yScale: 0.5
                 }
@@ -556,7 +556,7 @@ const createShape = function (x, y) {
         return Bodies.rectangle(x, y, 50, 25, {
             render: {
                 sprite: {
-                    texture: "images/netlify.png",
+                    texture: "images/netlify.webp",
                     xScale: 0.5,
                     yScale: 0.5
                 }
@@ -572,7 +572,7 @@ const createShape = function (x, y) {
         return Bodies.rectangle(x, y, 50, 25, {
             render: {
                 sprite: {
-                    texture: "images/vanillaJavascript.png",
+                    texture: "images/vanillaJavascript.webp",
                     xScale: 0.5,
                     yScale: 0.5
                 }
@@ -588,7 +588,7 @@ const createShape = function (x, y) {
         return Bodies.rectangle(x, y, 50, 25, {
             render: {
                 sprite: {
-                    texture: "images/three.png",
+                    texture: "images/three.webp",
                     xScale: 0.5,
                     yScale: 0.5
                 }
@@ -604,7 +604,7 @@ const createShape = function (x, y) {
         return Bodies.rectangle(x, y, 50, 25, {
             render: {
                 sprite: {
-                    texture: "images/p5.png",
+                    texture: "images/p5.webp",
                     xScale: 0.5,
                     yScale: 0.5
                 }
@@ -620,7 +620,7 @@ const createShape = function (x, y) {
         return Bodies.rectangle(x, y, 50, 25, {
             render: {
                 sprite: {
-                    texture: "images/graphQL.png",
+                    texture: "images/graphQL.webp",
                     xScale: 0.5,
                     yScale: 0.5
                 }
@@ -636,7 +636,7 @@ const createShape = function (x, y) {
         return Bodies.rectangle(x, y, 50, 25, {
             render: {
                 sprite: {
-                    texture: "images/node.png",
+                    texture: "images/node.webp",
                     xScale: 0.5,
                     yScale: 0.5
                 }
@@ -652,7 +652,7 @@ const createShape = function (x, y) {
         return Bodies.rectangle(x, y, 50, 25, {
             render: {
                 sprite: {
-                    texture: "images/gatsby.png",
+                    texture: "images/gatsby.webp",
                     xScale: 0.5,
                     yScale: 0.5
                 }
@@ -668,7 +668,7 @@ const createShape = function (x, y) {
         return Bodies.rectangle(x, y, 50, 25, {
             render: {
                 sprite: {
-                    texture: "images/wordpress.png",
+                    texture: "images/wordpress.webp",
                     xScale: 0.5,
                     yScale: 0.5
                 }
@@ -684,7 +684,7 @@ const createShape = function (x, y) {
         return Bodies.rectangle(x, y, 50, 25, {
             render: {
                 sprite: {
-                    texture: "images/accessibility.png",
+                    texture: "images/accessibility.webp",
                     xScale: 0.5,
                     yScale: 0.5
                 }
@@ -700,7 +700,7 @@ const createShape = function (x, y) {
         return Bodies.rectangle(x, y, 50, 25, {
             render: {
                 sprite: {
-                    texture: "images/react.png",
+                    texture: "images/react.webp",
                     xScale: 0.5,
                     yScale: 0.5
                 }
@@ -716,7 +716,7 @@ const createShape = function (x, y) {
         return Bodies.rectangle(x, y, 50, 25, {
             render: {
                 sprite: {
-                    texture: "images/vanillaJavascript.png",
+                    texture: "images/vanillaJavascript.webp",
                     xScale: 0.5,
                     yScale: 0.5
                 }

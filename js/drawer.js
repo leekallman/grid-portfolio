@@ -43,7 +43,7 @@ const draw = function () {
     requestAnimationFrame(draw)
 }
 let i = 0
-const images = ["images/image1.jpg", "images/image2.jpg", "images/image3.jpg", "images/image4.jpg", "images/image5.jpg"].map(src => {
+const images = ["images/image1.webp", "images/image2.webp", "images/image3.webp", "images/image4.webp", "images/image5.webp"].map(src => {
     const image = document.createElement("img")
     image.src = src
     image.onload = draw();
