@@ -110,4 +110,4 @@ void main(void)
 }`;
 
 sandbox.load(frag);
-sandbox.setUniform('image', 'images/lisa.webp');
+sandbox.setUniform('image', 'images/lisa.png');
