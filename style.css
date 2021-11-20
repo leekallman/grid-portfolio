@@ -110,7 +110,7 @@ body {
 }
 
 .overlay h2 {
-  font-family: Syne-bold;
+  font-family: Syne-bold, sans-serif;
   font-size: 1.1rem;
   letter-spacing: 1px;
   text-align: center;
@@ -127,7 +127,7 @@ body {
   opacity: 0.2;
 }
 .show {
-  font-family: Syne;
+  font-family: Syne, sans-serif;
   opacity: 1;
   background: linear-gradient(0deg, transparent, rgba(149, 112, 112, 0.7));
 }
@@ -309,7 +309,7 @@ body {
   left: 50%;
   top: 50%;
   color: #fff;
-  font-family: Athelas-Italic;
+  font-family: Athelas-Italic, sans-serif;
   font-size: 2.5rem;
   transform: translate(-48%, -48%) rotate(-10deg);
 }
@@ -383,7 +383,7 @@ body {
 .nine-three {
   position: relative;
   font-size: 18px;
-  font-family: Athelas-Italic;
+  font-family: Athelas-Italic, sans-serif;
 }
 .nine-three h2 {
   width: 80%;
@@ -399,7 +399,7 @@ body {
 
 input {
   position: absolute;
-  bottom: 15%;
+  bottom: 13%;
   left: 25%;
   margin: auto;
   width: 50%;
@@ -531,7 +531,7 @@ input[type="range"]::-ms-fill-upper {
 
 .email,
 .linkedin {
-  font-family: Athelas-Italic;
+  font-family: Athelas-Italic, sans-serif;
   font-size: 2rem;
   color: #000;
   position: absolute;
@@ -608,7 +608,7 @@ input[type="range"]::-ms-fill-upper {
 .modal-heading {
   grid-column: 2/16;
   grid-row: 1/2;
-  font-family: Syne-bold;
+  font-family: Syne-bold, sans-serif;
   margin-bottom: 1rem;
   letter-spacing: 1px;
   height: 5vh;
@@ -628,7 +628,7 @@ input[type="range"]::-ms-fill-upper {
 .features,
 .modal-inner span {
   text-transform: uppercase;
-  font-family: Syne-bold;
+  font-family: Syne-bold, sans-serif;
   font-size: 0.6rem;
   margin-bottom: 1rem;
 }
@@ -674,7 +674,7 @@ input[type="range"]::-ms-fill-upper {
   max-width: 150px;
 }
 .italic {
-  font-family: Syne !important;
+  font-family: Syne, sans-serif !important;
   font-style: italic;
   font-size: 18px;
   text-transform: none !important;

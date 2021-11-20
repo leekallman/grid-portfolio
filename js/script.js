@@ -75,271 +75,167 @@ document.querySelector(".input").addEventListener("input", function () {
 });
 
 
-let overlayEightTwo = document.querySelector('.overlay-eight-two');
-let overlayOneOne = document.querySelector('.overlay-one-one');
-let overlayTwoOne = document.querySelector('.overlay-two-one');
-let overlaySevenOne = document.querySelector('.overlay-seven-one');
-let overlayFourFive = document.querySelector('.overlay-four-five');
-let overlayFiveOne = document.querySelector('.overlay-five-one');
-let overlayNineOne = document.querySelector('.overlay-nine-one');
-let overlayNineFour = document.querySelector('.overlay-nine-four');
-let overlayElevenOne = document.querySelector('.overlay-eleven-one');
-let overlayTwelveFour = document.querySelector('.overlay-twelve-four');
+// sketch01
+const fourTwo = document.querySelector('.four-two');
 
-let oneOne = document.querySelector('.one-one');
-let eightTwo = document.querySelector('.eight-two');
-let twoOne = document.querySelector('.two-one');
-let sevenOne = document.querySelector('.seven-one');
-let fourFive = document.querySelector('.four-five');
-let fiveOne = document.querySelector('.five-one');
-let nineOne = document.querySelector('.nine-one');
-let nineFour = document.querySelector('.nine-four');
-let elevenOne = document.querySelector('.eleven-one');
-let sixFour = document.querySelector('.six-four');
-let twelveFour = document.querySelector('.twelve-four');
+let graphics;
+const sketch01 = function (a) {
+    a.setup = function () {
+        let w = fourTwo.offsetWidth;
+        let h = fourTwo.offsetHeight;
+        a.pixelDensity(1);
+        a.createCanvas(w, h);
 
-let modalOneOne = document.querySelector('.modal-one-one');
-let modalEightTwo = document.querySelector('.modal-eight-two');
-let modalTwoOne = document.querySelector('.modal-two-one');
-let modalNineOne = document.querySelector('.modal-nine-one');
-let modalNineFour = document.querySelector('.modal-nine-four');
-let modalFourFive = document.querySelector('.modal-four-five');
-let modalFiveOne = document.querySelector('.modal-five-one');
-let modalSevenOne = document.querySelector('.modal-seven-one');
-let modalElevenOne = document.querySelector('.modal-eleven-one');
-let modalSixFour = document.querySelector('.modal-six-four');
-let modalTwelveFour = document.querySelector('.modal-twelve-four');
+        graphics = a.createGraphics(w, h);
+        graphics.fill('#000');
+        graphics.textFont('Inter-var');
+        graphics.textAlign(a.CENTER, a.CENTER);
+        graphics.textSize(w);
+        graphics.text('hi', w / 2, h / 1.5);
+    };
+    a.draw = function () {
+        a.clear();
+        a.background(255, 0, 0, 0);
+        a.tileSize = 50;
+        for (let x = 0; x < 10; x = x + 1) {
+            for (let y = 0; y < 10; y = y + 1) {
 
-oneOne.onmouseover = function () {
-    overlayOneOne.classList.add("show")
-}
-eightTwo.onmouseover = function () {
-    overlayEightTwo.classList.add("show")
-}
-twoOne.onmouseover = function () {
-    overlayTwoOne.classList.add("show")
-}
-sevenOne.onmouseover = function () {
-    overlaySevenOne.classList.add("show")
-}
-fourFive.onmouseover = function () {
-    overlayFourFive.classList.add("show")
-}
-fiveOne.onmouseover = function () {
-    overlayFiveOne.classList.add("show")
-}
-nineOne.onmouseover = function () {
-    overlayNineOne.classList.add("show")
-}
-nineFour.onmouseover = function () {
-    overlayNineFour.classList.add("show")
-}
-elevenOne.onmouseover = function () {
-    overlayElevenOne.classList.add("show")
-}
-twelveFour.onmouseover = function () {
-    overlayTwelveFour.classList.add("show")
-}
+                a.distortion = a.sin(a.frameCount * 0.05 + x * 0.5 + y * 0.3) * 50
+                //source
+                const sx = x * a.tileSize + a.distortion
+                const sy = y * a.tileSize
+                const sw = a.tileSize
+                const sh = a.tileSize
 
+                //destination
+                const dx = x * a.tileSize
+                const dy = y * a.tileSize
+                const dw = a.tileSize
+                const dh = a.tileSize
+                a.image(graphics, dx, dy, dw, dh, sx, sy, sw, sh);
+            };
+        };
+    };
+    a.windowResized = function () {
+        a.resizeCanvas(fourTwo.offsetWidth, fourTwo.offsetHeight);
+    };
+};
+const mysketch01 = new p5(sketch01, fourTwo);
 
-oneOne.onmouseout = function () {
-    overlayOneOne.classList.remove("show")
-}
-eightTwo.onmouseout = function () {
-    overlayEightTwo.classList.remove("show")
-}
-twoOne.onmouseout = function () {
-    overlayTwoOne.classList.remove("show")
-}
-sevenOne.onmouseout = function () {
-    overlaySevenOne.classList.remove("show")
-}
-fourFive.onmouseout = function () {
-    overlayFourFive.classList.remove("show")
-}
-fiveOne.onmouseout = function () {
-    overlayFiveOne.classList.remove("show")
-}
-nineOne.onmouseout = function () {
-    overlayNineOne.classList.remove("show")
-}
-nineFour.onmouseout = function () {
-    overlayNineFour.classList.remove("show")
-}
-elevenOne.onmouseout = function () {
-    overlayElevenOne.classList.remove("show")
-}
-twelveFour.onmouseout = function () {
-    overlayTwelveFour.classList.remove("show")
+// photo
+const sketch03 = document.querySelector('.me');
+const sandbox = new GlslCanvas(sketch03);
+
+const frag = `
+precision highp float;
+
+uniform float u_time;
+uniform vec2 resolution;
+uniform vec2 mouse;
+uniform vec3 spectrum;
+
+uniform sampler2D image;
+
+varying vec3 v_normal;
+varying vec2 v_texcoord;
+
+#define NUM_OCTAVES 5
+
+float rand(vec2 n) { 
+    return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
 }
 
-
-// modal
-overlayOneOne.onclick = function () {
-    let opens = document.querySelectorAll(".open");
-    opens.forEach(open => {
-        open.classList.remove("open")
-    });
-    modalOneOne.querySelector('.modal-inner').scrollTop = 0;
-    modalOneOne.classList.add("open")
-}
-modalOneOne.onclick = function () {
-    modalOneOne.classList.remove("open")
-}
-modalOneOne.onmouseleave = function () {
-    modalOneOne.classList.remove("open")
+float noise(vec2 p){
+    vec2 ip = floor(p);
+    vec2 u = fract(p);
+    u = u*u*(3.0-2.0*u);
+    
+    float res = mix(
+        mix(rand(ip),rand(ip+vec2(1.0,0.0)),u.x),
+        mix(rand(ip+vec2(0.0,1.0)),rand(ip+vec2(1.0,1.0)),u.x),u.y);
+    return res*res;
 }
 
-overlayEightTwo.onclick = function () {
-    let opens = document.querySelectorAll(".open");
-    opens.forEach(open => {
-        open.classList.remove("open")
-    });
-    modalEightTwo.querySelector('.modal-inner').scrollTop = 0;
-    modalEightTwo.classList.add("open")
-}
-modalEightTwo.onclick = function () {
-    modalEightTwo.classList.remove("open")
-}
-modalEightTwo.onmouseleave = function () {
-    modalEightTwo.classList.remove("open")
-}
-
-overlayTwoOne.onclick = function () {
-    let opens = document.querySelectorAll(".open");
-    opens.forEach(open => {
-        open.classList.remove("open")
-    });
-    modalTwoOne.querySelector('.modal-inner').scrollTop = 0;
-    modalTwoOne.classList.add("open")
-}
-modalTwoOne.onclick = function () {
-    modalTwoOne.classList.remove("open")
-}
-modalTwoOne.onmouseleave = function () {
-    modalTwoOne.classList.remove("open")
-
-}
-overlayNineOne.onclick = function () {
-    let opens = document.querySelectorAll(".open");
-    opens.forEach(open => {
-        open.classList.remove("open")
-    });
-    modalNineOne.querySelector('.modal-inner').scrollTop = 0;
-    modalNineOne.classList.add("open")
-}
-modalNineOne.onclick = function () {
-    modalNineOne.classList.remove("open")
-}
-modalNineOne.onmouseleave = function () {
-    modalNineOne.classList.remove("open")
+float fbm(vec2 x) {
+    float v = 0.0;
+    float a = 0.5;
+    vec2 shift = vec2(100);
+    // Rotate to reduce axial bias
+    mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.50));
+    for (int i = 0; i < NUM_OCTAVES; ++i) {
+        v += a * noise(x);
+        x = rot * x * 2.0 + shift;
+        a *= 0.5;
+    }
+    return v;
 }
 
-overlayNineFour.onclick = function () {
-    let opens = document.querySelectorAll(".open");
-    opens.forEach(open => {
-        open.classList.remove("open")
-    });
-    modalNineFour.querySelector('.modal-inner').scrollTop = 0;
-    modalNineFour.classList.add("open")
-}
-modalNineFour.onclick = function () {
-    modalNineFour.classList.remove("open")
-}
-modalNineFour.onmouseleave = function () {
-    modalNineFour.classList.remove("open")
-}
+void main(void)
+{
+    vec2 uv = v_texcoord;
+    
+    float strength = smoothstep(0.4, 0.1, uv.y);
+    vec2 surface = strength * vec2(
+    mix(-0.3, 0.3, fbm(5.0*uv + 0.5*u_time)), 
+    mix(-0.3, 0.3, fbm(5.0*uv + 0.5*u_time))
+    );
+    
+    uv += refract(vec2(0.0, 0.0), surface, 1.0/1.333);
+    vec4 color = texture2D(image, uv);
+    gl_FragColor = color;
+}`;
 
-overlayFourFive.onclick = function () {
-    let opens = document.querySelectorAll(".open");
-    opens.forEach(open => {
-        open.classList.remove("open")
-    });
-    modalFourFive.querySelector('.modal-inner').scrollTop = 0;
-    modalFourFive.classList.add("open")
-}
-modalFourFive.onclick = function () {
-    modalFourFive.classList.remove("open")
-}
-modalFourFive.onmouseleave = function () {
-    modalFourFive.classList.remove("open")
-}
+sandbox.load(frag);
+sandbox.setUniform('image', 'images/lisa.png');
 
-overlaySevenOne.onclick = function () {
-    let opens = document.querySelectorAll(".open");
-    opens.forEach(open => {
-        open.classList.remove("open")
-    });
-    modalSevenOne.querySelector('.modal-inner').scrollTop = 0;
-    modalSevenOne.classList.add("open")
-}
-modalSevenOne.onclick = function () {
-    modalSevenOne.classList.remove("open")
-}
-modalSevenOne.onmouseleave = function () {
-    modalSevenOne.classList.remove("open")
-}
+//image drawer
+const oneTwo = document.querySelector(".one-two")
+const canvasTag = document.querySelector(".imgCanvas")
+canvasTag.width = oneTwo.offsetWidth
+canvasTag.height = oneTwo.offsetWidth
 
-overlayElevenOne.onclick = function () {
-    let opens = document.querySelectorAll(".open");
-    opens.forEach(open => {
-        open.classList.remove("open")
-    });
-    modalElevenOne.querySelector('.modal-inner').scrollTop = 0;
-    modalElevenOne.classList.add("open")
-}
-modalElevenOne.onclick = function () {
-    modalElevenOne.classList.remove("open")
-}
-modalElevenOne.onmouseleave = function () {
-    modalElevenOne.classList.remove("open")
-}
+canvasTag.style.width = canvasTag.width + "px"
+canvasTag.style.height = canvasTag.width + "px"
 
-overlayFiveOne.onclick = function () {
-    let opens = document.querySelectorAll(".open");
-    opens.forEach(open => {
-        open.classList.remove("open")
-    });
-    modalFiveOne.querySelector('.modal-inner').scrollTop = 0;
-    modalFiveOne.classList.add("open")
-}
-modalFiveOne.onclick = function () {
-    modalFiveOne.classList.remove("open")
-}
-modalFiveOne.onmouseleave = function () {
-    modalFiveOne.classList.remove("open")
-}
+const context = canvasTag.getContext("2d")
+context.scale(0.5, 0.5)
 
-sixFour.onclick = function () {
-    let opens = document.querySelectorAll(".open");
-    opens.forEach(open => {
-        open.classList.remove("open")
-    });
-    modalSixFour.querySelector('.modal-inner').scrollTop = 0;
-    modalSixFour.classList.add("open")
-}
-modalSixFour.onclick = function () {
-    modalSixFour.classList.remove("open")
-}
-modalSixFour.onmouseleave = function () {
-    modalSixFour.classList.remove("open")
-}
+let aimX2 = null
+let aimY2 = null
+let currentX2 = null
+let currentY2 = null
 
-twelveFour.onclick = function () {
-    let opens = document.querySelectorAll(".open");
-    opens.forEach(open => {
-        open.classList.remove("open")
-    });
-    modalTwelveFour.querySelector('.modal-inner').scrollTop = 0;
-    modalTwelveFour.classList.add("open")
+canvasTag.addEventListener("mousemove", function (event) {
+    aimX2 = event.pageX
+    aimY2 = event.pageY
+    if (currentX2 === null) {
+        currentX2 = event.pageX
+        currentY2 = event.pageY
+    }
+})
+canvasTag.addEventListener("click", function () {
+    i = i + 1
+    if (i >= images.length) {
+        i = 0
+    }
+})
+const draw = function () {
+    if (currentX2) {
+        if (images[i].complete) {
+            context.drawImage(images[i], currentX2 - 500, currentY2 * 2, 400, 300)
+        }
+        currentX2 = currentX2 + (aimX2 - currentX2) * 0.1
+        currentY2 = currentY2 + (aimY2 - currentY2) * 0.1
+    }
+    requestAnimationFrame(draw)
 }
-modalTwelveFour.onclick = function () {
-    modalTwelveFour.classList.remove("open")
-}
-modalTwelveFour.onmouseleave = function () {
-    modalTwelveFour.classList.remove("open")
-}
-
+let i = 0
+const images = ["images/image1.webp", "images/image2.webp", "images/image3.webp", "images/image4.webp", "images/image5.webp"].map(src => {
+    const image = document.createElement("img")
+    image.src = src
+    image.onload = draw();
+    return image
+})
 
 // book2
 const sixSix = document.querySelector('.six-six');
@@ -798,3 +694,269 @@ window.addEventListener('deviceorientation', function (event) {
 
     Engine.update(engine)
 })
+
+
+let overlayEightTwo = document.querySelector('.overlay-eight-two');
+let overlayOneOne = document.querySelector('.overlay-one-one');
+let overlayTwoOne = document.querySelector('.overlay-two-one');
+let overlaySevenOne = document.querySelector('.overlay-seven-one');
+let overlayFourFive = document.querySelector('.overlay-four-five');
+let overlayFiveOne = document.querySelector('.overlay-five-one');
+let overlayNineOne = document.querySelector('.overlay-nine-one');
+let overlayNineFour = document.querySelector('.overlay-nine-four');
+let overlayElevenOne = document.querySelector('.overlay-eleven-one');
+let overlayTwelveFour = document.querySelector('.overlay-twelve-four');
+
+let oneOne = document.querySelector('.one-one');
+let eightTwo = document.querySelector('.eight-two');
+let twoOne = document.querySelector('.two-one');
+let sevenOne = document.querySelector('.seven-one');
+let fourFive = document.querySelector('.four-five');
+let fiveOne = document.querySelector('.five-one');
+let nineOne = document.querySelector('.nine-one');
+let nineFour = document.querySelector('.nine-four');
+let elevenOne = document.querySelector('.eleven-one');
+let sixFour = document.querySelector('.six-four');
+let twelveFour = document.querySelector('.twelve-four');
+
+let modalOneOne = document.querySelector('.modal-one-one');
+let modalEightTwo = document.querySelector('.modal-eight-two');
+let modalTwoOne = document.querySelector('.modal-two-one');
+let modalNineOne = document.querySelector('.modal-nine-one');
+let modalNineFour = document.querySelector('.modal-nine-four');
+let modalFourFive = document.querySelector('.modal-four-five');
+let modalFiveOne = document.querySelector('.modal-five-one');
+let modalSevenOne = document.querySelector('.modal-seven-one');
+let modalElevenOne = document.querySelector('.modal-eleven-one');
+let modalSixFour = document.querySelector('.modal-six-four');
+let modalTwelveFour = document.querySelector('.modal-twelve-four');
+
+oneOne.onmouseover = function () {
+    overlayOneOne.classList.add("show")
+}
+eightTwo.onmouseover = function () {
+    overlayEightTwo.classList.add("show")
+}
+twoOne.onmouseover = function () {
+    overlayTwoOne.classList.add("show")
+}
+sevenOne.onmouseover = function () {
+    overlaySevenOne.classList.add("show")
+}
+fourFive.onmouseover = function () {
+    overlayFourFive.classList.add("show")
+}
+fiveOne.onmouseover = function () {
+    overlayFiveOne.classList.add("show")
+}
+nineOne.onmouseover = function () {
+    overlayNineOne.classList.add("show")
+}
+nineFour.onmouseover = function () {
+    overlayNineFour.classList.add("show")
+}
+elevenOne.onmouseover = function () {
+    overlayElevenOne.classList.add("show")
+}
+twelveFour.onmouseover = function () {
+    overlayTwelveFour.classList.add("show")
+}
+
+
+oneOne.onmouseout = function () {
+    overlayOneOne.classList.remove("show")
+}
+eightTwo.onmouseout = function () {
+    overlayEightTwo.classList.remove("show")
+}
+twoOne.onmouseout = function () {
+    overlayTwoOne.classList.remove("show")
+}
+sevenOne.onmouseout = function () {
+    overlaySevenOne.classList.remove("show")
+}
+fourFive.onmouseout = function () {
+    overlayFourFive.classList.remove("show")
+}
+fiveOne.onmouseout = function () {
+    overlayFiveOne.classList.remove("show")
+}
+nineOne.onmouseout = function () {
+    overlayNineOne.classList.remove("show")
+}
+nineFour.onmouseout = function () {
+    overlayNineFour.classList.remove("show")
+}
+elevenOne.onmouseout = function () {
+    overlayElevenOne.classList.remove("show")
+}
+twelveFour.onmouseout = function () {
+    overlayTwelveFour.classList.remove("show")
+}
+
+
+// modal
+overlayOneOne.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalOneOne.querySelector('.modal-inner').scrollTop = 0;
+    modalOneOne.classList.add("open")
+}
+modalOneOne.onclick = function () {
+    modalOneOne.classList.remove("open")
+}
+modalOneOne.onmouseleave = function () {
+    modalOneOne.classList.remove("open")
+}
+
+overlayEightTwo.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalEightTwo.querySelector('.modal-inner').scrollTop = 0;
+    modalEightTwo.classList.add("open")
+}
+modalEightTwo.onclick = function () {
+    modalEightTwo.classList.remove("open")
+}
+modalEightTwo.onmouseleave = function () {
+    modalEightTwo.classList.remove("open")
+}
+
+overlayTwoOne.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalTwoOne.querySelector('.modal-inner').scrollTop = 0;
+    modalTwoOne.classList.add("open")
+}
+modalTwoOne.onclick = function () {
+    modalTwoOne.classList.remove("open")
+}
+modalTwoOne.onmouseleave = function () {
+    modalTwoOne.classList.remove("open")
+
+}
+overlayNineOne.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalNineOne.querySelector('.modal-inner').scrollTop = 0;
+    modalNineOne.classList.add("open")
+}
+modalNineOne.onclick = function () {
+    modalNineOne.classList.remove("open")
+}
+modalNineOne.onmouseleave = function () {
+    modalNineOne.classList.remove("open")
+}
+
+overlayNineFour.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalNineFour.querySelector('.modal-inner').scrollTop = 0;
+    modalNineFour.classList.add("open")
+}
+modalNineFour.onclick = function () {
+    modalNineFour.classList.remove("open")
+}
+modalNineFour.onmouseleave = function () {
+    modalNineFour.classList.remove("open")
+}
+
+overlayFourFive.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalFourFive.querySelector('.modal-inner').scrollTop = 0;
+    modalFourFive.classList.add("open")
+}
+modalFourFive.onclick = function () {
+    modalFourFive.classList.remove("open")
+}
+modalFourFive.onmouseleave = function () {
+    modalFourFive.classList.remove("open")
+}
+
+overlaySevenOne.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalSevenOne.querySelector('.modal-inner').scrollTop = 0;
+    modalSevenOne.classList.add("open")
+}
+modalSevenOne.onclick = function () {
+    modalSevenOne.classList.remove("open")
+}
+modalSevenOne.onmouseleave = function () {
+    modalSevenOne.classList.remove("open")
+}
+
+overlayElevenOne.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalElevenOne.querySelector('.modal-inner').scrollTop = 0;
+    modalElevenOne.classList.add("open")
+}
+modalElevenOne.onclick = function () {
+    modalElevenOne.classList.remove("open")
+}
+modalElevenOne.onmouseleave = function () {
+    modalElevenOne.classList.remove("open")
+}
+
+overlayFiveOne.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalFiveOne.querySelector('.modal-inner').scrollTop = 0;
+    modalFiveOne.classList.add("open")
+}
+modalFiveOne.onclick = function () {
+    modalFiveOne.classList.remove("open")
+}
+modalFiveOne.onmouseleave = function () {
+    modalFiveOne.classList.remove("open")
+}
+
+sixFour.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalSixFour.querySelector('.modal-inner').scrollTop = 0;
+    modalSixFour.classList.add("open")
+}
+modalSixFour.onclick = function () {
+    modalSixFour.classList.remove("open")
+}
+modalSixFour.onmouseleave = function () {
+    modalSixFour.classList.remove("open")
+}
+
+twelveFour.onclick = function () {
+    let opens = document.querySelectorAll(".open");
+    opens.forEach(open => {
+        open.classList.remove("open")
+    });
+    modalTwelveFour.querySelector('.modal-inner').scrollTop = 0;
+    modalTwelveFour.classList.add("open")
+}
+modalTwelveFour.onclick = function () {
+    modalTwelveFour.classList.remove("open")
+}
+modalTwelveFour.onmouseleave = function () {
+    modalTwelveFour.classList.remove("open")
+}
