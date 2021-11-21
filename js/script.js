@@ -681,10 +681,10 @@ tenTwo.addEventListener("click", function (event) {
     World.add(engine.world, shape)
 })
 
-tenTwo.addEventListener("touchstart", function (event) {
-    const shape = createShape(event.pageX, event.pageY)
-    World.add(engine.world, shape)
-})
+// tenTwo.addEventListener("touchstart", function (event) {
+//     const shape = createShape(event.pageX, event.pageY)
+//     World.add(engine.world, shape)
+// })
 
 window.addEventListener('deviceorientation', function (event) {
     engine.world.gravity = {
