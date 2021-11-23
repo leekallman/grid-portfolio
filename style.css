@@ -357,7 +357,7 @@ body {
 }
 .dial {
   position: absolute;
-  top: 50%;
+  top: 48%;
   left: 50%;
   background-color: #ffbdd7;
   border-radius: 10px;
@@ -367,16 +367,16 @@ body {
 }
 .seconds {
   background-color: #000;
-  width: 80px;
+  width: 85px;
   border-radius: 50px;
 }
 .minutes {
-  width: 75px;
+  width: 80px;
   height: 7px;
 }
 .hours {
   height: 7px;
-  width: 60px;
+  width: 62px;
 }
 
 /* who I am */
@@ -921,14 +921,14 @@ input[type="range"]::-ms-fill-upper {
     height: 6px;
   }
   .hours {
-    width: 7.5vw;
+    width: 7vw;
   }
   .minutes {
     width: 8.5vw;
   }
   .seconds {
     height: 2px;
-    width: 9.5vw;
+    width: 9vw;
   }
   .star img {
     height: 25vw;
