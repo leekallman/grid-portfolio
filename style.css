@@ -387,7 +387,7 @@ body {
 }
 .nine-three h2 {
   width: 80%;
-  margin: 2rem auto 2rem auto;
+  margin: 2rem auto 1rem auto;
   font-weight: normal;
 }
 .phrase {
@@ -836,7 +836,7 @@ input[type="range"]::-ms-fill-upper {
   .seven-two {
     grid-column: 1/6;
     grid-row: 11/12;
-    min-height: 200px;
+    min-height: 150px;
   }
   .eight-two {
     grid-column: 1/3;
@@ -921,10 +921,10 @@ input[type="range"]::-ms-fill-upper {
     height: 6px;
   }
   .hours {
-    width: 8vw;
+    width: 7.5vw;
   }
   .minutes {
-    width: 9vw;
+    width: 8.5vw;
   }
   .seconds {
     height: 2px;
@@ -950,11 +950,22 @@ input[type="range"]::-ms-fill-upper {
     font-size: 0.9rem;
     line-height: 1.2rem;
   }
+  .nine-three h2 {
+    margin-bottom: 0;
+  }
   .ellipse1 {
     top: 40%;
   }
   .ellipse2 {
     top: 60%;
+  }
+  .ellipse1 img,
+  .ellipse2 img {
+    width: 40vw;
+  }
+  .ellipse1 a,
+  .ellipse2 a {
+    font-size: 5.5vw;
   }
 }
 
